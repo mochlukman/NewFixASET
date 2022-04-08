@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Kibc" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Kibc" type="Usadi.Valid49.BO.KibcControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Kibc">
+      <result property="Id" column="ID"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Tglperolehan" column="TGLPEROLEHAN"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Noreg" column="NOREG"/>
+      <result property="Kdpemilik" column="KDPEMILIK"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Umeko" column="UMEKO"/>
+      <result property="Asalusul" column="ASALUSUL"/>
+      <result property="Pengguna" column="PENGGUNA"/>
+      <result property="Ket" column="KET"/>
+      <result property="Kdkon" column="KDKON"/>
+      <result property="Kdhak" column="KDHAK"/>
+      <result property="Bertingkat" column="BERTINGKAT"/>
+      <result property="Beton" column="BETON"/>
+      <result property="Luaslt" column="LUASLT"/>
+      <result property="Alamat" column="ALAMAT"/>
+      <result property="Nodokgdg" column="NODOKGDG"/>
+      <result property="Tgdokgdg" column="TGDOKGDG"/>
+      <result property="Luastnh" column="LUASTNH"/>
+      <result property="Nokdtanah" column="NOKDTANAH"/>
+      <result property="Kdlokpo" column="KDLOKPO"/>
+      <result property="Kdbrgpo" column="KDBRGPO"/>
+      <result property="Kdsatuan" column="KDSATUAN"/>
+      <result property="Kdklas" column="KDKLAS"/>
+      <result property="Kdsensus" column="KDSENSUS"/>
+      <result property="Kdstatusaset" column="KDSTATUSASET"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Kdaset" column="KDASET"/>
+      <result property="Nmaset" column="NMASET"/>
+      <result property="Nmpemilik" column="NMPEMILIK"/>
+      <result property="Nmkon" column="NMKON"/>
+      <result property="Nmhak" column="NMHAK"/>
+      <result property="Nmsatuan" column="NMSATUAN"/>
+      <result property="Uraiklas" column="URAIKLAS"/>
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Keyinv" column="KEYINV"/>
+    </resultMap>
+    <resultMap id="return-cekjmldata" class="Kibc">
+      <result property="Jmldata" column="JMLDATA"/>
+    </resultMap>
+    <resultMap id="return-kdtanah" class="Kibc">
+      <result property="Nmkdtanah" column="NMKDTANAH"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertKibc" parameterMap="insert-param">
+      <generate table="Aset_kibc"/>
+    </insert>
+    <update id="UpdateByKibc" parameterClass="Kibc">
+      update ASET_KIBC set KDPEMILIK=#Kdpemilik#, ASALUSUL=#Asalusul#, PENGGUNA=#Pengguna#, KET=#Ket#
+      , KDKON=#Kdkon#, KDHAK=#Kdhak#, BERTINGKAT=#Bertingkat#, BETON=#Beton#, LUASLT=#Luaslt#, ALAMAT=#Alamat#
+      , NODOKGDG=#Nodokgdg#, TGDOKGDG=#Tgdokgdg#, LUASTNH=#Luastnh#, NOKDTANAH=#Nokdtanah#, KDSATUAN=#Kdsatuan#
+      where UNITKEY=#Unitkey# and ASETKEY=#Asetkey# and KEYINV=#Keyinv#
+    </update>
+    <update id="UpdateByValidRevKibc" parameterClass="Kibc">
+      update ASET_KIBC set REV_BY=#Rev_by# and REV_DATE=#Rev_date#
+    </update>
+    <update id="UpdateByUnValidRevKibc" parameterClass="Kibc">
+      update ASET_KIBC set REV_BY='' and REV_DATE=null
+    </update>
+    <delete id="DeleteByKibc" parameterMap="delete-param">
+      <generate table="Aset_kibc" by="UNITKEY,ASETKEY,KEYINV"/>
+    </delete>
+    <select id="BaseQueryKibc" parameterClass="Kibc" resultMap="return-result">
+      select A.ID, A.IDBRG, A.UNITKEY, DU.KDUNIT, DU.NMUNIT, A.ASETKEY, DA.KDASET, DA.NMASET, A.KEYINV, A.TAHUN
+      , A.TGLPEROLEHAN, A.NOREG, A.KDPEMILIK, JM.NMPEMILIK, A.NILAI, A.UMEKO, A.ASALUSUL, A.PENGGUNA, A.KET
+      , A.KDKON, KA.NMKON, A.KDHAK, JH.NMHAK
+      , (case when A.BERTINGKAT='true' then '1' else '0' end) as BERTINGKAT
+      , (case when A.BETON='true' then '1' else '0' end) as BETON
+      , A.LUASLT, A.ALAMAT, A.NODOKGDG, A.TGDOKGDG, A.LUASTNH
+      , A.NOKDTANAH, A.KDLOKPO, A.KDBRGPO, A.KDSATUAN, S.NMSATUAN, A.KDKLAS, JK.URAIKLAS
+      , A.KDSENSUS, A.KDSTATUSASET
+      from ASET_KIBC A
+      left join DAFTUNIT DU on DU.UNITKEY=A.UNITKEY
+      left join DAFTASET DA on DA.ASETKEY=A.ASETKEY
+      left join JMILIK JM on JM.KDPEMILIK=A.KDPEMILIK
+      left join JHAK JH on JH.KDHAK=A.KDHAK
+      left join JKLAS JK on JK.KDKLAS=A.KDKLAS
+      left join SATUAN S on S.KDSATUAN=A.KDSATUAN
+      left join KONASET KA on KA.KDKON=A.KDKON
+    </select>
+    <select id="QueryByAllKibc" extends="BaseQueryKibc" parameterClass="Kibc" resultMap="return-result">
+      where 1=1
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="QueryByIntraKibc" extends="BaseQueryKibc" parameterClass="Kibc" resultMap="return-result">
+      where 1=1
+      and A.KDKLAS='01'
+      and A.KDSTATUSASET='01'
+      and A.ASETKEY=#Asetkey#
+      and (A.Unitkey=#Unitkey# or isnull(#Unitkey#,'')='')
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="QueryByEkstraKibc" extends="BaseQueryKibc" parameterClass="Kibc" resultMap="return-result">
+      where 1=1
+      and A.KDKLAS='02'
+      and A.KDSTATUSASET='01'
+      and A.ASETKEY=#Asetkey#
+      and (A.Unitkey=#Unitkey# or isnull(#Unitkey#,'')='')
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="QueryByLookupKibc" extends="BaseQueryKibc" parameterClass="Kibc" resultMap="return-result">
+      where 1=1
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="LoadByPKKibc" extends="BaseQueryKibc" parameterClass="Kibc" resultMap="return-result">
+      where A.UNITKEY=#Unitkey# and A.ASETKEY=#Asetkey# and A.KEYINV=#Keyinv#
+    </select>
+    <select id="LoadByCekjmldataKibc" parameterClass="Kibc" resultMap="return-cekjmldata">
+      select COUNT(*) JMLDATA
+      from ASET_KIBC A
+      where A.UNITKEY = #Unitkey# and A.ASETKEY = #Asetkey# and A.KEYINV=#Keyinv#
+    </select>
+    <select id="LoadByKdtanahKibc" parameterClass="Kibc" resultMap="return-kdtanah">
+      select X.NMKDTANAH
+      from (
+      select rtrim(A.IDBRG)+'.'+rtrim(A.TAHUN)+'.'+rtrim(A.NOREG) as NOKDTANAH, A.ALAMAT as NMKDTANAH
+      from ASET_KIBA A
+      left join DAFTASET DA ON DA.ASETKEY = A.ASETKEY
+      ) X
+      where X.NOKDTANAH=#Nokdtanah#
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Kibc">
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Kdpemilik" column="KDPEMILIK"/>
+      <parameter property="Nilai" column="NILAI"/>
+      <parameter property="Umeko" column="UMEKO"/>
+      <parameter property="Asalusul" column="ASALUSUL"/>
+      <parameter property="Pengguna" column="PENGGUNA"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Kdkon" column="KDKON"/>
+      <parameter property="Kdhak" column="KDHAK"/>
+      <parameter property="Bertingkat" column="BERTINGKAT"/>
+      <parameter property="Beton" column="BETON"/>
+      <parameter property="Luaslt" column="LUASLT"/>
+      <parameter property="Alamat" column="ALAMAT"/>
+      <parameter property="Nodokgdg" column="NODOKGDG"/>
+      <parameter property="Tgdokgdg" column="TGDOKGDG"/>
+      <parameter property="Luastnh" column="LUASTNH"/>
+      <parameter property="Nokdtanah" column="NOKDTANAH"/>
+      <parameter property="Kdlokpo" column="KDLOKPO"/>
+      <parameter property="Kdbrgpo" column="KDBRGPO"/>
+      <parameter property="Kdsatuan" column="KDSATUAN"/>
+      <parameter property="Kdklas" column="KDKLAS"/>
+      <parameter property="Kdsensus" column="KDSENSUS"/>
+      <parameter property="Kdstatusaset" column="KDSTATUSASET"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+    <parameterMap id="update-param" class="Kibc">
+      <parameter property="Kdpemilik" column="KDPEMILIK"/>
+      <parameter property="Asalusul" column="ASALUSUL"/>
+      <parameter property="Pengguna" column="PENGGUNA"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Kdkon" column="KDKON"/>
+      <parameter property="Kdhak" column="KDHAK"/>
+      <parameter property="Bertingkat" column="BERTINGKAT"/>
+      <parameter property="Beton" column="BETON"/>
+      <parameter property="Luaslt" column="LUASLT"/>
+      <parameter property="Alamat" column="ALAMAT"/>
+      <parameter property="Nodokgdg" column="NODOKGDG"/>
+      <parameter property="Tgdokgdg" column="TGDOKGDG"/>
+      <parameter property="Luastnh" column="LUASTNH"/>
+      <parameter property="Nokdtanah" column="NOKDTANAH"/>
+      <parameter property="Kdsatuan" column="KDSATUAN"/>
+    </parameterMap>
+    <parameterMap id="delete-param" class="Kibc">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

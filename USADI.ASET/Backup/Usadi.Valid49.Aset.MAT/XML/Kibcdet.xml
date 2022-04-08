@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Kibcdet" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Kibcdet" type="Usadi.Valid49.BO.KibcdetControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Kibcdet">
+      <result property="Id" column="ID"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Noreg" column="NOREG"/>
+      <result property="Kdtans" column="KDTANS"/>
+      <result property="Nmtrans" column="NMTRANS"/>
+      <result property="Tgldokumen" column="TGLDOKUMEN"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Umeko" column="UMEKO"/>
+      <result property="Ket" column="KET"/>
+      <result property="Thang" column="THANG"/>
+      <result property="Uraitrans" column="URAITRANS"/>
+      <result property="Nilaitrans" column="NILAITRANS"/>
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Noba" column="NOBA"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Keyinv" column="KEYINV"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertKibcdet" parameterMap="insert-param">
+      <generate table="Kibcdet"/>
+    </insert>
+    <update id="UpdateByKibcdet" parameterMap="update-param">
+      <generate table="Aset_kibcdet" by="UNITKEY,NOBA,ASETKEY,KEYINV"/>
+    </update>
+    <update id="UpdateByValidRevKibcdet" parameterClass="Kibcdet">
+      update ASET_KIBCDET set REV_BY=#Rev_by# and REV_DATE=#Rev_date#
+    </update>
+    <update id="UpdateByUnValidRevKibcdet" parameterClass="Kibcdet">
+      update ASET_KIBCDET set REV_BY='' and REV_DATE=null
+    </update>
+    <delete id="DeleteByKibcdet" parameterMap="delete-param">
+      <generate table="Aset_kibcdet" by="UNITKEY,NOBA,ASETKEY,KEYINV"/>
+    </delete>
+    <select id="BaseQueryKibcdet" parameterClass="Kibcdet" resultMap="return-result">
+      select A.ID, A.IDBRG, A.UNITKEY, A.ASETKEY, A.KEYINV, A.TAHUN, A.NOREG, A.NOBA, A.KDTANS, j.NMTRANS
+      , A.TGLDOKUMEN, A.NILAI, A.UMEKO, A.KET, A.THANG
+      , CASE WHEN LEFT(A.KDTANS,1) IN('0','1') THEN J.NMTRANS+' (+)' WHEN LEFT(A.KDTANS,1) = '2' THEN J.NMTRANS+' (-)' END AS URAITRANS
+      , CASE WHEN LEFT(A.KDTANS,1) IN('0','1') THEN A.NILAI WHEN LEFT(A.KDTANS,1) = '2' THEN -1*A.NILAI END AS NILAITRANS
+      from ASET_KIBCDET A
+      left join JTRANS J on J.KDTANS=A.KDTANS
+    </select>
+    <select id="QueryByAllKibcdet" extends="BaseQueryKibcdet" parameterClass="Kibcdet" resultMap="return-result">
+      where 1=1
+      and A.UNITKEY=#Unitkey#
+      and A.ASETKEY=#Asetkey#
+      and A.KEYINV=#Keyinv#
+      order by A.TGLDOKUMEN
+    </select>
+    <select id="QueryByLookupKibcdet" extends="BaseQueryKibcdet" parameterClass="Kibcdet" resultMap="return-result">
+      where 1=1
+      order by A.TGLDOKUMEN
+    </select>
+    <select id="LoadByPKKibcdet" extends="BaseQueryKibcdet" parameterClass="Kibcdet" resultMap="return-result">
+      where A.KEYINV=#Keyinv# and A.ASETKEY=#Asetkey# and A.NOBA=#Noba# and A.UNITKEY=#Unitkey#
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Kibcdet">
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Tgldokumen" column="TGLDOKUMEN"/>
+      <parameter property="Nilai" column="NILAI"/>
+      <parameter property="Umeko" column="UMEKO"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Thang" column="THANG"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noba" column="NOBA"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+    <parameterMap id="update-param" extends="insert-param" class="Kibcdet">
+    </parameterMap>
+    <parameterMap id="delete-param" class="Kibcdet">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noba" column="NOBA"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

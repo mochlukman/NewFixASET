@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Berita" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Berita" type="Usadi.Valid49.BO.BeritaControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Berita">
+      <result property="Id" column="ID"/>
+      <result property="Tglba" column="TGLBA"/>
+      <result property="Nobap" column="NOBAP"/>
+      <result property="Tglbap" column="TGLBAP"/>
+      <result property="Kdkegunit" column="KDKEGUNIT"/>
+      <result property="Kdtahap" column="KDTAHAP"/>
+      <result property="Idprgrm" column="IDPRGRM"/>
+      <result property="Nokontrak" column="NOKONTRAK"/>
+      <result property="Uraiba" column="URAIBA"/>
+      <result property="Tglvalid" column="TGLVALID"/>
+      <result property="Kdbukti" column="KDBUKTI"/>
+      <result property="Kdtans" column="KDTANS"/>
+      <result property="Kddana" column="KDDANA"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Nmkegunit" column="NMKEGUNIT"/>
+      <result property="Nmprgrm" column="NMPRGRM"/>
+      <result property="Uraian" column="URAIAN"/>
+      <result property="Kdp3" column="KDP3"/>
+      <result property="Nminst" column="NMINST"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Nmtrans" column="NMTRANS"/>
+      <result property="Nmdana" column="NMDANA"/>
+      <result property="Nmbukti" column="NMBUKTI"/>
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Noba" column="NOBA"/>
+    </resultMap>
+    <resultMap id="return-jmlbast" class="Berita">
+      <result property="Jmlbast" column="JMLBAST"/>
+    </resultMap>
+    <resultMap id="return-jmlbrg" class="Berita">
+      <result property="Jmlbrg" column="JMLBRG"/>
+    </resultMap>
+    <resultMap id="return-jmlgenerated" class="Berita">
+      <result property="Jmlgenerated" column="JMLGENERATED"/>
+    </resultMap>
+    <resultMap id="return-jmlkib" class="Berita">
+      <result property="Jmlkib" column="JMLKIB"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertBerita" parameterClass="Berita">
+      insert into ASET_BERITA(UNITKEY,NOBA,TGLBA,NOBAP,TGLBAP,KDKEGUNIT,KDTAHAP,IDPRGRM,NOKONTRAK,URAIBA,TGLVALID,KDBUKTI,KDTANS,KDDANA)
+      values(#Unitkey#,#Noba#,#Tglba#,#Nobap#,#Tglbap#,#Kdkegunit#,#Kdtahap#,#Idprgrm#,#Nokontrak#,#Uraiba#,null,#Kdbukti#,#Kdtans#,#Kddana#)
+    </insert>
+    <update id="UpdateByBerita" parameterClass="Berita">
+      update ASET_BERITA set TGLBA=#Tglba#, NOBAP=#Nobap#, TGLBAP=#Tglbap#, URAIBA=#Uraiba#
+      where UNITKEY=#Unitkey# and NOBA=#Noba# 
+    </update>
+    <update id="UpdateBySahBerita" parameterClass="Berita">
+      update ASET_BERITA set TGLVALID=#Tglvalid#
+      where UNITKEY=#Unitkey# and NOBA=#Noba#
+    </update>
+    <update id="UpdateByDraftBerita" parameterClass="Berita">
+      update ASET_BERITA set TGLVALID=null
+      where UNITKEY=#Unitkey# and NOBA=#Noba#
+    </update>
+    <update id="UpdateByValidRevBerita" parameterClass="Berita">
+      update ASET_BERITA set REV_BY=#Rev_by# and REV_DATE=#Rev_date#
+    </update>
+    <update id="UpdateByUnValidRevBerita" parameterClass="Berita">
+      update ASET_BERITA set REV_BY='' and REV_DATE=null
+    </update>
+    <delete id="DeleteByBerita" parameterMap="delete-param">
+      <generate table="Aset_berita" by="UNITKEY,NOBA"/>
+    </delete>
+    <select id="BaseQueryBerita" parameterClass="Berita" resultMap="return-result">
+      select A.ID, A.UNITKEY, D.KDUNIT, D.NMUNIT, A.NOBA, A.TGLBA, A.NOBAP, A.TGLBAP, A.KDKEGUNIT, M.NMKEGUNIT, A.KDTAHAP, A.IDPRGRM
+      , M2.NMPRGRM, A.NOKONTRAK, K.URAIAN, K.KDP3, DP.NMINST, K.NILAI, A.URAIBA, A.TGLVALID, A.KDBUKTI, A.KDTANS
+      , J.NMTRANS, A.KDDANA, JD.NMDANA, JB.NMBUKTI
+      from ASET_BERITA A
+      left join DAFTUNIT D ON D.UNITKEY = A.UNITKEY
+      left join KONTRAK K ON K.UNITKEY = A.UNITKEY and K.NOKONTRAK = A.NOKONTRAK
+      left join MKEGIATAN M ON M.KDKEGUNIT = K.KDKEGUNIT
+      left join MPGRM M2 ON M2.IDPRGRM = M.IDPRGRM and M2.THANG = M.THANG
+      left join DAFTPHK3 DP ON DP.KDP3 = K.KDP3
+      left join JDANA JD ON JD.KDDANA = A.KDDANA
+      left join JBUKTI JB ON JB.KDBUKTI = A.KDBUKTI
+      left join JTRANS J ON J.KDTANS = A.KDTANS
+    </select>
+    <select id="QueryByAllBerita" extends="BaseQueryBerita" parameterClass="Berita" resultMap="return-result">
+      where 1=1
+      and A.UNITKEY=#Unitkey#
+      and A.KDKEGUNIT=#Kdkegunit#
+      and year(A.TGLBA) = (select CONFIGVAL from PEMDA where CONFIGID = 'cur_thang')
+    </select>
+    <select id="QueryByBeritalainnyaBerita" extends="BaseQueryBerita" parameterClass="Berita" resultMap="return-result">
+      where 1=1
+      and A.UNITKEY=#Unitkey#
+      and A.KDTANS in ('102','103','107')
+      and year(A.TGLBA) = (select CONFIGVAL from PEMDA where CONFIGID = 'cur_thang')
+    </select>
+    <select id="QueryByLookupBerita" extends="BaseQueryBerita" parameterClass="Berita" resultMap="return-result">
+      where 1=1
+    </select>
+    <select id="LoadByPKBerita" extends="BaseQueryBerita" parameterClass="Berita" resultMap="return-result">
+      where A.UNITKEY=#Unitkey# and A.NOBA=#Noba#
+    </select>
+    <select id="LoadByJmlbastBerita" parameterClass="Berita" resultMap="return-jmlbast">
+      select COUNT(A.NOBA) JMLBAST from ASET_BERITA A
+      where A.UNITKEY=#Unitkey# and A.NOBA=#Noba#
+    </select>
+    <select id="LoadByJmlbrgBerita" parameterClass="Berita" resultMap="return-jmlbrg">
+      select COUNT(A.ASETKEY) JMLBRG from ASET_BERITADETBRG A
+      where A.UNITKEY=#Unitkey# and A.NOBA=#Noba#
+    </select>
+    <select id="LoadByJmlgeneratedBerita" parameterClass="Berita" resultMap="return-jmlgenerated">
+      select COUNT(A.ASETKEY) JMLGENERATED from ASET_BERITADETBRG A
+      where A.UNITKEY=#Unitkey# and A.NOBA=#Noba# and A.GENERATED = '1'
+    </select>
+    <select id="LoadByJmlkibBerita" resultMap="return-jmlkib">
+      select count(t.NOBA) as JMLKIB from
+      (select distinct B.NOBA from ASET_KIBADET B where B.UNITKEY=#Unitkey# and B.NOBA=#Noba#
+      union all
+      select distinct B.NOBA from ASET_KIBBDET B where B.UNITKEY=#Unitkey# and B.NOBA=#Noba#
+      union all
+      select distinct B.NOBA from ASET_KIBCDET B where B.UNITKEY=#Unitkey# and B.NOBA=#Noba#
+      union all
+      select distinct B.NOBA from ASET_KIBDDET B where B.UNITKEY=#Unitkey# and B.NOBA=#Noba#
+      union all
+      select distinct B.NOBA from ASET_KIBEDET B where B.UNITKEY=#Unitkey# and B.NOBA=#Noba#
+      union all
+      select distinct B.NOBA from ASET_KIBFDET B where B.UNITKEY=#Unitkey# and B.NOBA=#Noba#
+      union all
+      select distinct B.NOBA from ASET_KIBGDET B where B.UNITKEY=#Unitkey# and B.NOBA=#Noba#) t
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Berita">
+      <parameter property="Tglba" column="TGLBA"/>
+      <parameter property="Nobap" column="NOBAP"/>
+      <parameter property="Tglbap" column="TGLBAP"/>
+      <parameter property="Kdkegunit" column="KDKEGUNIT"/>
+      <parameter property="Kdtahap" column="KDTAHAP"/>
+      <parameter property="Idprgrm" column="IDPRGRM"/>
+      <parameter property="Nokontrak" column="NOKONTRAK"/>
+      <parameter property="Uraiba" column="URAIBA"/>
+      <parameter property="Tglvalid" column="TGLVALID"/>
+      <parameter property="Kdbukti" column="KDBUKTI"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Kddana" column="KDDANA"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noba" column="NOBA"/>
+    </parameterMap>
+    <parameterMap id="update-param" extends="insert-param" class="Berita">
+    </parameterMap>
+    <parameterMap id="delete-param" class="Berita">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noba" column="NOBA"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

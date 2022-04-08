@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Kemitraandet" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Kemitraandet" type="Usadi.Valid49.BO.KemitraandetControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Kemitraandet">
+      <result property="Id" column="ID"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Nopenilaian" column="NOPENILAIAN"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Kdaset" column="KDASET"/>
+      <result property="Nmaset" column="NMASET"/>
+      <result property="Nminst" column="NMINST"/>
+      <result property="Nmtrans" column="NMTRANS"/>
+      <result property="Noreg" column="NOREG"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Kdtans" column="KDTANS"/>
+      <result property="Kdp3" column="KDP3"/>
+      <result property="Nodokumen" column="NODOKUMEN"/>
+      <result property="Unitkey" column="UNITKEY"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertKemitraandet" parameterMap="insert-param">
+      <generate table="Aset_kemitraandet"/>
+    </insert>
+    <update id="UpdateByKemitraandet" parameterMap="update-param">
+      <generate table="Aset_kemitraandet" by="NOREG,TAHUN,ASETKEY,KDTANS,KDP3,NODOKUMEN,UNITKEY"/>
+    </update>
+    <update id="UpdateByValidRevKemitraandet" parameterClass="Kemitraandet">
+      update ASET_KEMITRAANDET set REV_BY=#Rev_by# and REV_DATE=#Rev_date#
+    </update>
+    <update id="UpdateByUnValidRevKemitraandet" parameterClass="Kemitraandet">
+      update ASET_KEMITRAANDET set REV_BY='' and REV_DATE=null
+    </update>
+    <delete id="DeleteByKemitraandet" parameterMap="delete-param">
+      <generate table="Aset_kemitraandet" by="NOREG,TAHUN,ASETKEY,KDTANS,KDP3,NODOKUMEN,UNITKEY"/>
+    </delete>
+    <select id="BaseQueryKemitraandet" parameterClass="Kemitraandet" resultMap="return-result">
+      select A.ID, A.UNITKEY, DU.KDUNIT, DU.NMUNIT, A.NODOKUMEN, A.KDP3, D.NMINST, A.KDTANS, J.NMTRANS, A.ASETKEY
+      , DA.KDASET, DA.NMASET, A.TAHUN, A.NOREG, A.IDBRG, A.NILAI, A.NOPENILAIAN
+      from ASET_KEMITRAANDET A
+      left join DAFTUNIT DU ON DU.UNITKEY = A.UNITKEY
+      left join DAFTASET DA ON DA.ASETKEY = A.ASETKEY
+      left join DAFTPHK3 D ON D.KDP3 = A.KDP3
+      left join JTRANS J ON J.KDTANS = A.KDTANS
+    </select>
+    <select id="QueryByAllKemitraandet" extends="BaseQueryKemitraandet" parameterClass="Kemitraandet" resultMap="return-result">
+      where 1=1
+      and A.UNITKEY=#Unitkey# 
+      and A.NODOKUMEN=#Nodokumen# 
+      and A.KDP3=#Kdp3# 
+      and A.KDTANS=#Kdtans#
+      order by DA.KDASET,A.TAHUN,A.NOREG,A.NILAI
+    </select>
+    <select id="QueryByLookupKemitraandet" extends="BaseQueryKemitraandet" parameterClass="Kemitraandet" resultMap="return-result">
+      where 1=1
+      order by DA.KDASET,A.TAHUN,A.NOREG,A.NILAI
+    </select>
+    <select id="LoadByPKKemitraandet" extends="BaseQueryKemitraandet" parameterClass="Kemitraandet" resultMap="return-result">
+      where and A.UNITKEY=#Unitkey#
+      and A.NODOKUMEN=#Nodokumen#
+      and A.KDP3=#Kdp3#
+      and A.KDTANS=#Kdtans#
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Kemitraandet">
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Nilai" column="NILAI"/>
+      <parameter property="Nopenilaian" column="NOPENILAIAN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Kdp3" column="KDP3"/>
+      <parameter property="Nodokumen" column="NODOKUMEN"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+    </parameterMap>
+    <parameterMap id="update-param" extends="insert-param" class="Kemitraandet">
+    </parameterMap>
+    <parameterMap id="delete-param" class="Kemitraandet">
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Kdp3" column="KDP3"/>
+      <parameter property="Nodokumen" column="NODOKUMEN"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

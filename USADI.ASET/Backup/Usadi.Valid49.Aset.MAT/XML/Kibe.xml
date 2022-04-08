@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Kibe" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Kibe" type="Usadi.Valid49.BO.KibeControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Kibe">
+      <result property="Id" column="ID"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Tglperolehan" column="TGLPEROLEHAN"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Noreg" column="NOREG"/>
+      <result property="Kdpemilik" column="KDPEMILIK"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Umeko" column="UMEKO"/>
+      <result property="Asalusul" column="ASALUSUL"/>
+      <result property="Ket" column="KET"/>
+      <result property="Kdkon" column="KDKON"/>
+      <result property="Jdlpenerbit" column="JDLPENERBIT"/>
+      <result property="Bkpencipta" column="BKPENCIPTA"/>
+      <result property="Spesifikasi" column="SPESIFIKASI"/>
+      <result property="Asaldaerah" column="ASALDAERAH"/>
+      <result property="Pencipta" column="PENCIPTA"/>
+      <result property="Bahan" column="BAHAN"/>
+      <result property="Jenis" column="JENIS"/>
+      <result property="Ukuran" column="UKURAN"/>
+      <result property="Kdlokpo" column="KDLOKPO"/>
+      <result property="Kdbrgpo" column="KDBRGPO"/>
+      <result property="Kdsatuan" column="KDSATUAN"/>
+      <result property="Kdklas" column="KDKLAS"/>
+      <result property="Kdsensus" column="KDSENSUS"/>
+      <result property="Kdstatusaset" column="KDSTATUSASET"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Kdaset" column="KDASET"/>
+      <result property="Nmaset" column="NMASET"/>
+      <result property="Nmpemilik" column="NMPEMILIK"/>
+      <result property="Nmkon" column="NMKON"/>
+      <result property="Nmsatuan" column="NMSATUAN"/>
+      <result property="Uraiklas" column="URAIKLAS"/>      
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Keyinv" column="KEYINV"/>
+    </resultMap>
+    <resultMap id="return-cekjmldata" class="Kibe">
+      <result property="Jmldata" column="JMLDATA"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertKibe" parameterMap="insert-param">
+      <generate table="Aset_kibe"/>
+    </insert>
+    <update id="UpdateByKibe" parameterClass="Kibe">
+      update ASET_KIBE set KDPEMILIK=#Kdpemilik#, ASALUSUL=#Asalusul#, KET=#Ket#, KDKON=#Kdkon#, JDLPENERBIT=#Jdlpenerbit#
+      , BKPENCIPTA=#Bkpencipta#, SPESIFIKASI=#Spesifikasi#, ASALDAERAH=#Asaldaerah#, PENCIPTA=#Pencipta#, BAHAN=#Bahan#
+      , JENIS=#Jenis#, UKURAN=#Ukuran#, KDSATUAN=#Kdsatuan#
+      where UNITKEY=#Unitkey# and ASETKEY=#Asetkey# and KEYINV=#Keyinv#
+    </update>
+    <update id="UpdateByValidRevKibe" parameterClass="Kibe">
+      update ASET_KIBE set REV_BY=#Rev_by# and REV_DATE=#Rev_date#
+    </update>
+    <update id="UpdateByUnValidRevKibe" parameterClass="Kibe">
+      update ASET_KIBE set REV_BY='' and REV_DATE=null
+    </update>
+    <delete id="DeleteByKibe" parameterMap="delete-param">
+      <generate table="Aset_kibe" by="UNITKEY,ASETKEY,KEYINV"/>
+    </delete>
+    <select id="BaseQueryKibe" parameterClass="Kibe" resultMap="return-result">
+      select A.ID, A.IDBRG, A.UNITKEY, DU.KDUNIT, DU.NMUNIT, A.ASETKEY, DA.KDASET, DA.NMASET, A.KEYINV, A.TGLPEROLEHAN
+      , A.TAHUN, A.NOREG, A.KDPEMILIK, JM.NMPEMILIK, A.NILAI, A.UMEKO, A.ASALUSUL, A.KET, A.KDKON, KA.NMKON, A.JDLPENERBIT
+      , A.BKPENCIPTA, A.SPESIFIKASI, A.ASALDAERAH, A.PENCIPTA, A.BAHAN, A.JENIS, A.UKURAN, A.KDLOKPO
+      , A.KDBRGPO, A.KDSATUAN, S.NMSATUAN, A.KDKLAS, JK.URAIKLAS, A.KDSENSUS, A.KDSTATUSASET
+      from ASET_KIBE A
+      left join DAFTUNIT DU on DU.UNITKEY=A.UNITKEY
+      left join DAFTASET DA on DA.ASETKEY=A.ASETKEY
+      left join JMILIK JM on JM.KDPEMILIK=A.KDPEMILIK
+      left join JKLAS JK on JK.KDKLAS=A.KDKLAS
+      left join SATUAN S on S.KDSATUAN=A.KDSATUAN
+      left join KONASET KA on KA.KDKON=A.KDKON
+    </select>
+    <select id="QueryByAllKibe" extends="BaseQueryKibe" parameterClass="Kibe" resultMap="return-result">
+      where 1=1
+      and A.KDSTATUSASET='01'
+      and A.ASETKEY=#Asetkey#
+      and (A.Unitkey=#Unitkey# or isnull(#Unitkey#,'')='')
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="QueryByLookupKibe" extends="BaseQueryKibe" parameterClass="Kibe" resultMap="return-result">
+      where 1=1
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="LoadByPKKibe" extends="BaseQueryKibe" parameterClass="Kibe" resultMap="return-result">
+      where A.UNITKEY=#Unitkey# and A.ASETKEY=#Asetkey# and A.KEYINV=#Keyinv#
+    </select>
+    <select id="LoadByCekjmldataKibe" parameterClass="Kibe" resultMap="return-cekjmldata">
+      select COUNT(*) JMLDATA
+      from ASET_KIBE A
+      where A.UNITKEY = #Unitkey# and A.ASETKEY = #Asetkey# and A.KEYINV=#Keyinv#
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Kibe">
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Kdpemilik" column="KDPEMILIK"/>
+      <parameter property="Nilai" column="NILAI"/>
+      <parameter property="Umeko" column="UMEKO"/>
+      <parameter property="Asalusul" column="ASALUSUL"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Kdkon" column="KDKON"/>
+      <parameter property="Jdlpenerbit" column="JDLPENERBIT"/>
+      <parameter property="Bkpencipta" column="BKPENCIPTA"/>
+      <parameter property="Spesifikasi" column="SPESIFIKASI"/>
+      <parameter property="Asaldaerah" column="ASALDAERAH"/>
+      <parameter property="Pencipta" column="PENCIPTA"/>
+      <parameter property="Bahan" column="BAHAN"/>
+      <parameter property="Jenis" column="JENIS"/>
+      <parameter property="Ukuran" column="UKURAN"/>
+      <parameter property="Kdlokpo" column="KDLOKPO"/>
+      <parameter property="Kdbrgpo" column="KDBRGPO"/>
+      <parameter property="Kdsatuan" column="KDSATUAN"/>
+      <parameter property="Kdklas" column="KDKLAS"/>
+      <parameter property="Kdsensus" column="KDSENSUS"/>
+      <parameter property="Kdstatusaset" column="KDSTATUSASET"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+    <parameterMap id="update-param" class="Kibe">
+      <parameter property="Kdpemilik" column="KDPEMILIK"/>
+      <parameter property="Asalusul" column="ASALUSUL"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Kdkon" column="KDKON"/>
+      <parameter property="Jdlpenerbit" column="JDLPENERBIT"/>
+      <parameter property="Bkpencipta" column="BKPENCIPTA"/>
+      <parameter property="Spesifikasi" column="SPESIFIKASI"/>
+      <parameter property="Asaldaerah" column="ASALDAERAH"/>
+      <parameter property="Pencipta" column="PENCIPTA"/>
+      <parameter property="Bahan" column="BAHAN"/>
+      <parameter property="Jenis" column="JENIS"/>
+      <parameter property="Ukuran" column="UKURAN"/>
+      <parameter property="Kdsatuan" column="KDSATUAN"/>
+    </parameterMap>
+    <parameterMap id="delete-param" class="Kibe">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

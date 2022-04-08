@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Pindahtangandet" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Pindahtangandet" type="Usadi.Valid49.BO.PindahtangandetControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Pindahtangandet">
+      <result property="Id" column="ID"/>
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Nopindahtangan" column="NOPINDAHTANGAN"/>
+      <result property="Kdtans" column="KDTANS"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Kdaset" column="KDASET"/>
+      <result property="Nmaset" column="NMASET"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Noreg" column="NOREG"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Kdkon" column="KDKON"/>
+      <result property="Nopenilaian" column="NOPENILAIAN"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertPindahtangandet" parameterClass="Pindahtangandet">
+      INSERT INTO ASET_PINDAHTANGANDET(UNITKEY,NOPINDAHTANGAN,KDTANS,ASETKEY,TAHUN,NOREG,IDBRG,NILAI,KDKON,NOPENILAIAN)
+      VALUES (#Unitkey#,#Nopindahtangan#,#Kdtans#,#Asetkey#,#Tahun#,#Noreg#,#Idbrg#,#Nilai#,#Kdkon#,#Nopenilaian#)
+    </insert>
+    <delete id="DeleteByPindahtangandet" parameterMap="delete-param">
+      <generate table="Aset_Pindahtangandet" by="UNITKEY,NOPINDAHTANGAN,KDTANS,ASETKEY,TAHUN,NOREG"/>
+    </delete>
+    <select id="BaseQueryPindahtangandet" parameterClass="Pindahtangandet" resultMap="return-result">
+      SELECT ap.ID, ap.UNITKEY,d2.KDUNIT,d2.NMUNIT, ap.NOPINDAHTANGAN, ap.KDTANS, ap.ASETKEY,d.KDASET,d.NMASET, ap.TAHUN, ap.NOREG,
+      ap.IDBRG, ap.NILAI, ap.KDKON, ap.NOPENILAIAN
+      FROM ASET_PINDAHTANGANDET AS ap
+      INNER JOIN JTRANS AS j ON j.KDTANS = ap.KDTANS
+      INNER JOIN DAFTASET AS d ON d.ASETKEY = ap.ASETKEY
+      INNER JOIN DAFTUNIT AS d2 ON d2.UNITKEY = ap.UNITKEY
+    </select>
+    <select id="QueryByAllPindahtangandet" extends="BaseQueryPindahtangandet" parameterClass="Pindahtangandet" resultMap="return-result">
+      WHERE 1=1
+      AND ap.UNITKEY = #Unitkey#
+      AND ap.NOPINDAHTANGAN = #Nopindahtangan#
+      AND ap.KDTANS = #Kdtans#
+    </select>
+    <select id="QueryByHibahPindahtangandet" extends="BaseQueryPindahtangandet" parameterClass="Pindahtangandet" resultMap="return-result">
+      WHERE 1=1
+      AND ap.UNITKEY = #Unitkey#
+      AND ap.NOPINDAHTANGAN = #Nopindahtangan#
+      AND ap.KDTANS = '202'
+    </select>
+    <select id="QueryByDijualPindahtangandet" extends="BaseQueryPindahtangandet" parameterClass="Pindahtangandet" resultMap="return-result">
+      WHERE 1=1
+      AND ap.UNITKEY = #Unitkey#
+      AND ap.NOPINDAHTANGAN = #Nopindahtangan#
+      AND ap.KDTANS = '201'
+    </select>
+    <select id="QueryByTukarPindahtangandet" extends="BaseQueryPindahtangandet" parameterClass="Pindahtangandet" resultMap="return-result">
+      WHERE 1=1
+      AND ap.UNITKEY = #Unitkey#
+      AND ap.NOPINDAHTANGAN = #Nopindahtangan#
+      AND ap.KDTANS = '203'
+    </select>
+    <select id="QueryByMusnahPindahtangandet" extends="BaseQueryPindahtangandet" parameterClass="Pindahtangandet" resultMap="return-result">
+      WHERE 1=1
+      AND ap.UNITKEY = #Unitkey#
+      AND ap.NOPINDAHTANGAN = #Nopindahtangan#
+      AND ap.KDTANS = '204'
+    </select>
+    <select id="QueryByPmodalPindahtangandet" extends="BaseQueryPindahtangandet" parameterClass="Pindahtangandet" resultMap="return-result">
+      WHERE 1=1
+      AND ap.UNITKEY = #Unitkey#
+      AND ap.NOPINDAHTANGAN = #Nopindahtangan#
+      AND ap.KDTANS = '309'
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Pindahtangandet">
+      <parameter property="Id" column="ID"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Nopindahtangan" column="NOPINDAHTANGAN"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Nilai" column="NILAI"/>
+      <parameter property="Kdkon" column="KDKON"/>
+      <parameter property="Nopenilaian" column="NOPENILAIAN"/>
+    </parameterMap>
+    <parameterMap id="update-param" class="Pindahtangandet">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Nopindahtangan" column="NOPINDAHTANGAN"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Kdkon" column="KDKON"/>
+    </parameterMap>
+    <parameterMap id="delete-param" class="Pindahtangandet">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Nopindahtangan" column="NOPINDAHTANGAN"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

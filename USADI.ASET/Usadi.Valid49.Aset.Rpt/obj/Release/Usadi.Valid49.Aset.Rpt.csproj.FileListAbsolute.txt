@@ -1,0 +1,51 @@
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Backup\Build\Usadi.Valid49.Aset.Rpt.dll
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Backup\Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Backup\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csprojResolveAssemblyReference.cache
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Backup\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.dll
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Backup\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.pdb
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\New modify\Build\Usadi.Valid49.Aset.Rpt.dll
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\New modify\Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\New modify\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csprojResolveAssemblyReference.cache
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\New modify\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.dll
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\New modify\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.pdb
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Ciamis\Build\Usadi.Valid49.Aset.Rpt.dll
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Ciamis\Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Ciamis\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csprojResolveAssemblyReference.cache
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Ciamis\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.dll
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Ciamis\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADI\USADIDEV\USADI.ASET_PND\Hasil_Build\Usadi.Valid49.Aset.Rpt.dll
+D:\USADI\USADIDEV\USADI.ASET_PND\Hasil_Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADI\USADIDEV\USADI.ASET_PND\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csprojAssemblyReference.cache
+D:\USADI\USADIDEV\USADI.ASET_PND\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CoreCompileInputs.cache
+D:\USADI\USADIDEV\USADI.ASET_PND\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CopyComplete
+D:\USADI\USADIDEV\USADI.ASET_PND\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.dll
+D:\USADI\USADIDEV\USADI.ASET_PND\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.pdb
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Ciamis\Hasil_Build\Usadi.Valid49.Aset.Rpt.dll
+D:\PROJECT\CORE.NET\ASETV5\SOURCE\Ciamis\Hasil_Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADI\USADIDEV\USADI.ASET_CMS\Hasil_Build\Usadi.Valid49.Aset.Rpt.dll
+D:\USADI\USADIDEV\USADI.ASET_CMS\Hasil_Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADI\USADIDEV\USADI.ASET_CMS\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csprojAssemblyReference.cache
+D:\USADI\USADIDEV\USADI.ASET_CMS\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CoreCompileInputs.cache
+D:\USADI\USADIDEV\USADI.ASET_CMS\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CopyComplete
+D:\USADI\USADIDEV\USADI.ASET_CMS\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.dll
+D:\USADI\USADIDEV\USADI.ASET_CMS\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET_PDG\Hasil_Build\Usadi.Valid49.Aset.Rpt.dll
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET_PDG\Hasil_Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET_PDG\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csprojAssemblyReference.cache
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET_PDG\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CoreCompileInputs.cache
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET_PDG\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CopyComplete
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET_PDG\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.dll
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET_PDG\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.pdb
+D:\Offices\Usadi_Dev\USADI.NEWASET\USADI.ASET\Hasil_Build\Usadi.Valid49.Aset.Rpt.dll
+D:\Offices\Usadi_Dev\USADI.NEWASET\USADI.ASET\Hasil_Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\Offices\Usadi_Dev\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.AssemblyReference.cache
+D:\Offices\Usadi_Dev\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CoreCompileInputs.cache
+D:\Offices\Usadi_Dev\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CopyComplete
+D:\Offices\Usadi_Dev\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.dll
+D:\Offices\Usadi_Dev\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Hasil_Build\Usadi.Valid49.Aset.Rpt.dll
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Hasil_Build\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.AssemblyReference.cache
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.csproj.CoreCompileInputs.cache
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.dll
+D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Release\Usadi.Valid49.Aset.Rpt.pdb

@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\JS\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\JS\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_SIPDTim2010.1722955865.00" t="ExcludeRecursive" />
+    <e p="D:\USADIDEV\bin" t="ExcludeRecursive" />
+    <e p="D:\USADIDEV\USADI.ASET" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="SIPDTim2010.sln" t="IncludeFlat" />
+      <e p="Usadi.Valid49.Aset.DM" t="IncludeRecursive">
+        <e p="Base" t="Include">
+          <e p="BaseDataControlAsetDM.cs" t="Include" />
+          <e p="ConstantTablesAsetDM.cs" t="Include" />
+          <e p="Ss10userAsetLogin.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="BO" t="Include">
+          <e p="Bulan.cs" t="Include" />
+          <e p="BulanLookup.cs" t="Include" />
+          <e p="Daftaset.cs" t="Include" />
+          <e p="DaftasetKibLookup.cs" t="Include" />
+          <e p="DaftasetLookup.cs" t="Include" />
+          <e p="DaftasetReklasLookup.cs" t="Include" />
+          <e p="Daftdok.cs" t="Include" />
+          <e p="DaftdokLookup.cs" t="Include" />
+          <e p="Daftphk3.cs" t="Include" />
+          <e p="Daftruang.cs" t="Include" />
+          <e p="DaftruangLookup.cs" t="Include" />
+          <e p="Daftunit.cs" t="Include" />
+          <e p="DaftunitLookup.cs" t="Include" />
+          <e p="DaftunitMutasiLookup.cs" t="Include" />
+          <e p="DaftunitUrusLookup.cs" t="Include" />
+          <e p="Daskr.cs" t="Include" />
+          <e p="Golongan.cs" t="Include" />
+          <e p="GolonganLookup.cs" t="Include" />
+          <e p="Jabttd.cs" t="Include" />
+          <e p="Jbank.cs" t="Include" />
+          <e p="Jdana.cs" t="Include" />
+          <e p="Jfisik.cs" t="Include" />
+          <e p="JfisikLookup.cs" t="Include" />
+          <e p="Jhak.cs" t="Include" />
+          <e p="JhakLookup.cs" t="Include" />
+          <e p="Jklas.cs" t="Include" />
+          <e p="JklasLookup.cs" t="Include" />
+          <e p="JklasRptLookup.cs" t="Include" />
+          <e p="Jmilik.cs" t="Include" />
+          <e p="JmilikLookup.cs" t="Include" />
+          <e p="Jnskib.cs" t="Include" />
+          <e p="Jnskibaset.cs" t="Include" />
+          <e p="JnskibasetParent.cs" t="Include" />
+          <e p="Jtrans.cs" t="Include" />
+          <e p="JtransLookup.cs" t="Include" />
+          <e p="JtransPenilaianLookup.cs" t="Include" />
+          <e p="JtransPindahtanganLookup.cs" t="Include" />
+          <e p="JtransRptLookup.cs" t="Include" />
+          <e p="Jusaha.cs" t="Include" />
+          <e p="Kegunit.cs" t="Include" />
+          <e p="KegunitLookup.cs" t="Include" />
+          <e p="Konaset.cs" t="Include" />
+          <e p="KonasetLookup.cs" t="Include" />
+          <e p="Kontrak.cs" t="Include" />
+          <e p="Mapbljaset.cs" t="Include" />
+          <e p="MapbljasetParent.cs" t="Include" />
+          <e p="Mapnrcaset.cs" t="Include" />
+          <e p="MapnrcasetParent.cs" t="Include" />
+          <e p="Matangnrc.cs" t="Include" />
+          <e p="Matangr.cs" t="Include" />
+          <e p="Mkegiatan.cs" t="Include" />
+          <e p="Mpgrm.cs" t="Include" />
+          <e p="MpgrmLookup.cs" t="Include" />
+          <e p="Pegawai.cs" t="Include" />
+          <e p="PegawaiLookup.cs" t="Include" />
+          <e p="Pemda.cs" t="Include" />
+          <e p="Pgrmunit.cs" t="Include" />
+          <e p="Satuan.cs" t="Include" />
+          <e p="SatuanLookup.cs" t="Include" />
+          <e p="Skdask.cs" t="Include" />
+          <e p="Stdrenov.cs" t="Include" />
+          <e p="StdrenovParent.cs" t="Include" />
+          <e p="Struaset.cs" t="Include" />
+          <e p="StruasetLookup.cs" t="Include" />
+          <e p="Struruang.cs" t="Include" />
+          <e p="StruruangLookup.cs" t="Include" />
+          <e p="Struunit.cs" t="Include" />
+          <e p="StruunitLookup.cs" t="Include" />
+          <e p="Stskir.cs" t="Include" />
+          <e p="Tahap.cs" t="Include" />
+          <e p="TahapLookup.cs" t="Include" />
+          <e p="Tahun.cs" t="Include" />
+          <e p="TahunLookup.cs" t="Include" />
+          <e p="TahunSaldoawalLookup.cs" t="Include" />
+          <e p="Warna.cs" t="Include" />
+          <e p="WarnaLookup.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Usadi.Valid49.Aset.DM.csproj" t="IncludeRecursive" />
+        <e p="XML" t="Include">
+          <e p="Bulan.xml" t="Include" />
+          <e p="Daftaset.xml" t="Include" />
+          <e p="Daftdok.xml" t="Include" />
+          <e p="Daftphk3.xml" t="Include" />
+          <e p="Daftruang.xml" t="Include" />
+          <e p="Daftunit.xml" t="Include" />
+          <e p="Daskr.xml" t="Include" />
+          <e p="Golongan.xml" t="Include" />
+          <e p="Jabttd.xml" t="Include" />
+          <e p="Jbank.xml" t="Include" />
+          <e p="Jdana.xml" t="Include" />
+          <e p="Jfisik.xml" t="Include" />
+          <e p="Jhak.xml" t="Include" />
+          <e p="Jklas.xml" t="Include" />
+          <e p="Jmilik.xml" t="Include" />
+          <e p="Jnskib.xml" t="Include" />
+          <e p="Jnskibaset.xml" t="Include" />
+          <e p="Jtrans.xml" t="Include" />
+          <e p="Jusaha.xml" t="Include" />
+          <e p="Kegunit.xml" t="Include" />
+          <e p="Konaset.xml" t="Include" />
+          <e p="Kontrak.xml" t="Include" />
+          <e p="Mapbljaset.xml" t="Include" />
+          <e p="Mapnrcaset.xml" t="Include" />
+          <e p="Matangnrc.xml" t="Include" />
+          <e p="Matangr.xml" t="Include" />
+          <e p="Mkegiatan.xml" t="Include" />
+          <e p="Mpgrm.xml" t="Include" />
+          <e p="Pegawai.xml" t="Include" />
+          <e p="Pemda.xml" t="Include" />
+          <e p="Pgrmunit.xml" t="Include" />
+          <e p="Satuan.xml" t="Include" />
+          <e p="Skdask.xml" t="Include" />
+          <e p="Stdrenov.xml" t="Include" />
+          <e p="Struaset.xml" t="Include" />
+          <e p="Struruang.xml" t="Include" />
+          <e p="Struunit.xml" t="Include" />
+          <e p="Stskir.xml" t="Include" />
+          <e p="Tahap.xml" t="Include" />
+          <e p="Tahun.xml" t="Include" />
+          <e p="Warna.xml" t="Include" />
+          <e p="Webuser.xml" t="Include" />
+        </e>
+      </e>
+      <e p="Usadi.Valid49.Aset.MAT" t="IncludeRecursive">
+        <e p="Base" t="Include">
+          <e p="BaseDataControlAsetMAT.cs" t="Include" />
+          <e p="ConstantTablesAsetMAT.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="BO" t="Include">
+          <e p="Hapussk.cs" t="Include" />
+          <e p="Hapusskdet.cs" t="Include" />
+          <e p="KdtanahLookup.cs" t="Include" />
+          <e p="Kiba.cs" t="Include" />
+          <e p="Kibadet.cs" t="Include" />
+          <e p="Kibb.cs" t="Include" />
+          <e p="Kibbdet.cs" t="Include" />
+          <e p="Kibc.cs" t="Include" />
+          <e p="Kibcdet.cs" t="Include" />
+          <e p="Kibd.cs" t="Include" />
+          <e p="Kibddet.cs" t="Include" />
+          <e p="Kibe.cs" t="Include" />
+          <e p="Kibedet.cs" t="Include" />
+          <e p="Kibf.cs" t="Include" />
+          <e p="Kibfdet.cs" t="Include" />
+          <e p="Kibg.cs" t="Include" />
+          <e p="Kibgdet.cs" t="Include" />
+          <e p="Kibmutasi.cs" t="Include" />
+          <e p="Kibmutasidet.cs" t="Include" />
+          <e p="Penilaian.cs" t="Include" />
+          <e p="Penilaiandet.cs" t="Include" />
+          <e p="Pindahtangan.cs" t="Include" />
+          <e p="Pindahtangandet.cs" t="Include" />
+          <e p="Reklas.cs" t="Include" />
+          <e p="Reklasdet.cs" t="Include" />
+          <e p="ViewasetHapussk.cs" t="Include" />
+          <e p="ViewasetMutasi.cs" t="Include" />
+          <e p="ViewasetPenilaian.cs" t="Include" />
+          <e p="ViewasetPindahtangan.cs" t="Include" />
+          <e p="ViewasetReklas.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Usadi.Valid49.Aset.MAT.csproj" t="IncludeRecursive" />
+        <e p="XML" t="Include">
+          <e p="Hapussk.xml" t="Include" />
+          <e p="Hapusskdet.xml" t="Include" />
+          <e p="Kiba.xml" t="Include" />
+          <e p="Kibadet.xml" t="Include" />
+          <e p="Kibb.xml" t="Include" />
+          <e p="Kibbdet.xml" t="Include" />
+          <e p="Kibc.xml" t="Include" />
+          <e p="Kibcdet.xml" t="Include" />
+          <e p="Kibd.xml" t="Include" />
+          <e p="Kibddet.xml" t="Include" />
+          <e p="Kibe.xml" t="Include" />
+          <e p="Kibedet.xml" t="Include" />
+          <e p="Kibf.xml" t="Include" />
+          <e p="Kibfdet.xml" t="Include" />
+          <e p="Kibg.xml" t="Include" />
+          <e p="Kibgdet.xml" t="Include" />
+          <e p="Kibmutasi.xml" t="Include" />
+          <e p="Kibmutasidet.xml" t="Include" />
+          <e p="Penilaian.xml" t="Include" />
+          <e p="Penilaiandet.xml" t="Include" />
+          <e p="Pindahtangan.xml" t="Include" />
+          <e p="Pindahtangandet.xml" t="Include" />
+          <e p="Reklas.xml" t="Include" />
+          <e p="Reklasdet.xml" t="Include" />
+        </e>
+      </e>
+      <e p="Usadi.Valid49.Aset.Rpt" t="IncludeRecursive">
+        <e p="BO" t="Include">
+          <e p="DlgRptBukuInv.cs" t="Include" />
+          <e p="DlgRptDaftpengadaan.cs" t="Include" />
+          <e p="DlgRptDaftpenghapusan.cs" t="Include" />
+          <e p="DlgRptDaftpenyusutan.cs" t="Include" />
+          <e p="DlgRptKIBA.cs" t="Include" />
+          <e p="DlgRptKIBB.cs" t="Include" />
+          <e p="DlgRptKIBC.cs" t="Include" />
+          <e p="DlgRptKIBD.cs" t="Include" />
+          <e p="DlgRptKIBE.cs" t="Include" />
+          <e p="DlgRptKIBF.cs" t="Include" />
+          <e p="DlgRptKIBG.cs" t="Include" />
+          <e p="DlgRptKIR.cs" t="Include" />
+          <e p="DlgRptMutasiBrg.cs" t="Include" />
+          <e p="DlgRptRekapBukuInv.cs" t="Include" />
+          <e p="DlgRptRekapMutasiBrg.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Rpt" t="Include">
+          <e p="BukuInventaris.rpt" t="Include" />
+          <e p="Daftpengadaan.rpt" t="Include" />
+        </e>
+        <e p="Usadi.Valid49.Aset.Rpt.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="WebCMS" t="IncludeRecursive">
+        <e p="App_Code" t="Include">
+          <e p="CsvConverter.cs" t="Include" />
+          <e p="desktop.ini" t="Include" />
+          <e p="DocMerge.cs" t="Include" />
+          <e p="SBClient.cs" t="Include" />
+          <e p="Utility.cs" t="Include" />
+        </e>
+        <e p="App_Data" t="Include">
+          <e p="desktop.ini" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="desktop.ini" t="Include" />
+            <e p="JANGAN PUBLISH-BUILD AJA.pubxml" t="Include" />
+            <e p="Published.pubxml" t="Include" />
+            <e p="SmartTool.pubxml" t="Include" />
+          </e>
+        </e>
+        <e p="Ascx" t="Include">
+          <e p="desktop.ini" t="Include" />
+          <e p="SharedMethods.ascx" t="Include" />
+          <e p="SharedMethods.ascx.cs" t="Include" />
+          <e p="TabularShared.ascx" t="Include" />
+          <e p="TabularShared.ascx.cs" t="Include" />
+          <e p="TreeShared.ascx" t="Include" />
+          <e p="TreeShared.ascx.cs" t="Include" />
+        </e>
+        <e p="Blank.aspx" t="Include" />
+        <e p="Blank.aspx.cs" t="Include" />
+        <e p="dao.config" t="Include" />
+        <e p="Default.aspx" t="Include" />
+        <e p="Default.aspx.cs" t="Include" />
+        <e p="desktop.ini" t="Include" />
+        <e p="DetectScreen.aspx" t="Include" />
+        <e p="Dialog" t="Include">
+          <e p="desktop.ini" t="Include" />
+          <e p="GridBalance.aspx" t="Include" />
+          <e p="GridBalance.aspx.cs" t="Include" />
+          <e p="GridBalance1.aspx" t="Include" />
+          <e p="GridBalance1.aspx.cs" t="Include" />
+          <e p="GridLookup.aspx" t="Include" />
+          <e p="GridLookup.aspx.cs" t="Include" />
+          <e p="TreeLookup.aspx" t="Include" />
+          <e p="TreeLookup.aspx.cs" t="Include" />
+        </e>
+        <e p="Error.aspx" t="Include" />
+        <e p="Error.aspx.cs" t="Include" />
+        <e p="Global.asax" t="Include" />
+        <e p="Login.aspx" t="Include" />
+        <e p="Login.aspx.cs" t="Include" />
+        <e p="LoginAset.aspx" t="Include" />
+        <e p="LoginAset.aspx.cs" t="Include" />
+        <e p="Logout.aspx" t="Include" />
+        <e p="Logout.aspx.cs" t="Include" />
+        <e p="Lookup" t="Include">
+          <e p="desktop.ini" t="Include" />
+          <e p="FilterTabular.aspx" t="Include" />
+          <e p="FilterTabular.aspx.cs" t="Include" />
+          <e p="FilterTreePanel.aspx" t="Include" />
+          <e p="FilterTreePanel.aspx.cs" t="Include" />
+        </e>
+        <e p="MainMenu.aspx" t="Include" />
+        <e p="MainMenu.aspx.cs" t="Include" />
+        <e p="MainMenuMine.aspx.cs" t="Include" />
+        <e p="Page" t="Include">
+          <e p="Comment.aspx" t="Include" />
+          <e p="Comment.aspx.cs" t="Include" />
+          <e p="CSVUpload.aspx" t="Include" />
+          <e p="CSVUpload.aspx.cs" t="Include" />
+          <e p="desktop.ini" t="Include" />
+          <e p="FileBrowser.aspx" t="Include" />
+          <e p="FileBrowser.aspx.cs" t="Include" />
+          <e p="HTML.aspx" t="Include" />
+          <e p="HTML.aspx.cs" t="Include" />
+          <e p="MapBrowser.aspx" t="Include" />
+          <e p="MapBrowser.aspx.cs" t="Include" />
+          <e p="PageForm.aspx" t="Include" />
+          <e p="PageForm.aspx.cs" t="Include" />
+          <e p="PageJurnal.aspx" t="Include" />
+          <e p="PageJurnal.aspx.cs" t="Include" />
+          <e p="PageMasterDetil.aspx" t="Include" />
+          <e p="PageMasterDetil.aspx.cs" t="Include" />
+          <e p="PageMenu.aspx" t="Include" />
+          <e p="PageMenu.aspx.cs" t="Include" />
+          <e p="PageMenuTreeGrid.aspx" t="Include" />
+          <e p="PageMenuTreeGrid.aspx.cs" t="Include" />
+          <e p="PageRpt.aspx" t="Include" />
+          <e p="PageRpt.aspx.cs" t="Include" />
+          <e p="PageTabular.aspx" t="Include" />
+          <e p="PageTabular.aspx.cs" t="Include" />
+          <e p="PageTabularMine.aspx.cs" t="Include" />
+          <e p="PageTreeGrid.aspx" t="Include" />
+          <e p="PageTreeGrid.aspx.cs" t="Include" />
+          <e p="PageTreeGridDetil.aspx" t="Include" />
+          <e p="PageTreeGridDetil.aspx.cs" t="Include" />
+          <e p="PageTreeGridDetilMine.aspx.cs" t="Include" />
+          <e p="PageTreeGridMine.aspx.cs" t="Include" />
+          <e p="PageTreePanelDetil.aspx" t="Include" />
+          <e p="PageTreePanelDetil.aspx.cs" t="Include" />
+          <e p="PageTreePanelDetilMine.aspx.cs" t="Include" />
+          <e p="TextEditor.aspx" t="Include" />
+          <e p="TextEditor.aspx.cs" t="Include" />
+        </e>
+        <e p="Portal.aspx" t="Include" />
+        <e p="Portal.aspx.cs" t="Include" />
+        <e p="PortalMine.aspx.cs" t="Include" />
+        <e p="providers.config" t="Include" />
+        <e p="Res" t="Include">
+          <e p="Css" t="Include">
+            <e p="bootstrap.css" t="Include" />
+            <e p="common.css" t="Include" />
+            <e p="desktop.ini" t="Include" />
+            <e p="examples.css" t="Include" />
+            <e p="imageslide.css" t="Include" />
+            <e p="index.css" t="Include" />
+            <e p="ionicons.min.css" t="Include" />
+            <e p="login_style.css" t="Include" />
+            <e p="menu.css" t="Include" />
+            <e p="style.css" t="Include" />
+            <e p="subcommon.css" t="Include" />
+            <e p="tree.css" t="Include" />
+            <e p="userbox.css" t="Include" />
+          </e>
+          <e p="desktop.ini" t="Include" />
+          <e p="Icons" t="Include">
+            <e p="blank.png" t="Include" />
+            <e p="bulat-0.png" t="Include" />
+            <e p="bulat-100.png" t="Include" />
+            <e p="bulat-25.png" t="Include" />
+            <e p="bulat-50.png" t="Include" />
+            <e p="bulat-75.png" t="Include" />
+            <e p="buletbiru.png" t="Include" />
+            <e p="buletijo.png" t="Include" />
+            <e p="buletkuning.png" t="Include" />
+            <e p="buletmerah.png" t="Include" />
+            <e p="buletnavy.png" t="Include" />
+            <e p="buletpink.png" t="Include" />
+            <e p="desktop.ini" t="Include" />
+            <e p="kotakbiru.png" t="Include" />
+            <e p="kotakijo.png" t="Include" />
+            <e p="kotakkuning.png" t="Include" />
+            <e p="kotakmerah.png" t="Include" />
+            <e p="kotaknavy.png" t="Include" />
+            <e p="kotakpink.png" t="Include" />
+            <e p="kupat.png" t="Include" />
+            <e p="kupatbiru.png" t="Include" />
+            <e p="kupatijo.png" t="Include" />
+            <e p="kupatkuning.png" t="Include" />
+            <e p="kupatmerah.png" t="Include" />
+            <e p="kupatnavy.png" t="Include" />
+            <e p="kupatpink.png" t="Include" />
+            <e p="segitigabiru.png" t="Include" />
+            <e p="segitigaijo.png" t="Include" />
+            <e p="segitigakuning.png" t="Include" />
+            <e p="segitigamerah.png" t="Include" />
+            <e p="segitiganavy.png" t="Include" />
+            <e p="segitigapink.png" t="Include" />
+          </e>
+          <e p="Img" t="Include">
+            <e p="bg.jpg" t="Include" />
+            <e p="bg.png" t="Include" />
+            <e p="blue.JPG" t="Include" />
+            <e p="bluelogin.gif" t="Include" />
+            <e p="bluelogout.gif" t="Include" />
+            <e p="collapse-all.gif" t="Include" />
+            <e p="desktop.ini" t="Include" />
+            <e p="email.png" t="Include" />
+            <e p="expand-all.gif" t="Include" />
+            <e p="header-bg.gif" t="Include" />
+            <e p="icon.ico" t="Include" />
+            <e p="img_avatar.png" t="Include" />
+            <e p="lock.png" t="Include" />
+            <e p="logo.png" t="Include" />
+            <e p="logo_transp.png" t="Include" />
+            <e p="logoblank.png" t="Include" />
+            <e p="menu.png" t="Include" />
+            <e p="purple.jpg" t="Include" />
+            <e p="usaditree_bg.jpg" t="Include" />
+          </e>
+          <e p="img_bg" t="Include">
+            <e p="1.jpg" t="Include" />
+            <e p="2.jpg" t="Include" />
+            <e p="3.jpg" t="Include" />
+            <e p="bali1.jpg" t="Include" />
+            <e p="bali2.jpg" t="Include" />
+            <e p="bali3.jpg" t="Include" />
+            <e p="desktop.ini" t="Include" />
+            <e p="pattern.png" t="Include" />
+          </e>
+          <e p="JS" t="Include">
+            <e p="desktop.ini" t="Include" />
+            <e p="ionicons.dy5iahpg.js" t="Include" />
+            <e p="ionicons.js" t="Include" />
+            <e p="jquery-1.7.1.min.js" t="Include" />
+          </e>
+        </e>
+        <e p="SqlMap.config" t="Include" />
+        <e p="system" t="Include">
+          <e p="desktop.ini" t="Include" />
+          <e p="Konfigurasi.aspx.cs.exclude" t="Include" />
+          <e p="Konfigurasi.aspx.exclude" t="Include" />
+          <e p="PrintPdf.aspx" t="Include" />
+          <e p="PrintPdf.aspx.cs" t="Include" />
+          <e p="PrintPdf.aspx.cs.exclude" t="Include" />
+          <e p="PrintPdf.aspx.exclude" t="Include" />
+          <e p="PrintWord.aspx" t="Include" />
+          <e p="PrintWord.aspx.cs" t="Include" />
+          <e p="PrintWord.aspx.cs.exclude" t="Include" />
+          <e p="PrintWord.aspx.exclude" t="Include" />
+          <e p="SetPassword.aspx" t="Include" />
+          <e p="SetPassword.aspx.cs" t="Include" />
+          <e p="Sinkronisasi.aspx.cs.exclude" t="Include" />
+          <e p="Sinkronisasi.aspx.exclude" t="Include" />
+        </e>
+        <e p="Web.config" t="Include" />
+        <e p="website.publishproj" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>

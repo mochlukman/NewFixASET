@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{46C0DB41-0FC9-4ED9-977C-67AEC99EDE8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Usadi.Valid49.BO</RootNamespace>
+    <AssemblyName>Usadi.Valid49.Aset.Sys</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Hasil_Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoreNET.Common.Data">
+      <HintPath>..\bin\CoreNET.Common.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Ext">
+      <HintPath>..\bin\CoreNET.Common.Ext.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Lib">
+      <HintPath>..\bin\CoreNET.Common.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Sys">
+      <HintPath>..\bin\CoreNET.Common.Sys.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.UI">
+      <HintPath>..\bin\CoreNET.Common.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Net">
+      <HintPath>..\bin\Ext.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Net.Utilities">
+      <HintPath>..\bin\Ext.Net.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\Bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseDataControlAsetSys.cs" />
+    <Compile Include="Base\ConstantTablesAsetSys.cs" />
+    <Compile Include="BO\Ss01appmenuAset.cs" />
+    <Compile Include="BO\Ss01appmenuAsetGroup.cs" />
+    <Compile Include="BO\Ss10userLoginAset.cs" />
+    <Compile Include="BO\Webuser.cs" />
+    <Compile Include="BO\Webgroup.cs" />
+    <Compile Include="BO\WebuserLookup.cs" />
+    <Compile Include="BO\Webuserskpd.cs" />
+    <Compile Include="BO\WebuserskpdLookup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Webuser.xml" />
+    <EmbeddedResource Include="XML\Webgroup.xml" />
+    <EmbeddedResource Include="XML\Webuserskpd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Usadi.Valid49.Aset.DM\Usadi.Valid49.Aset.DM.csproj">
+      <Project>{19c88dec-8b1c-4927-a37d-171833734797}</Project>
+      <Name>Usadi.Valid49.Aset.DM</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

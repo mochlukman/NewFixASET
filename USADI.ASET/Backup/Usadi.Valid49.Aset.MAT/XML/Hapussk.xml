@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Hapussk" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Hapussk" type="Usadi.Valid49.BO.HapusskControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Hapussk">
+      <result property="Id" column="ID"/>
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Noskhapus" column="NOSKHAPUS"/>
+      <result property="Tglskhapus" column="TGLSKHAPUS"/>
+      <result property="Ket" column="KET"/>
+      <result property="Tglvalid" column="TGLVALID"/>
+    </resultMap>
+    <resultMap id="return-cekjmldata" class="Hapussk">
+      <result property="Jmldata" column="JMLDATA"/>
+    </resultMap>
+    <resultMap id="return-jmlkib" class="Hapussk">
+      <result property="Noskhapus" column="NOSKHAPUS"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertHapussk" parameterClass="Hapussk">
+      INSERT INTO ASET_HAPUSSK(UNITKEY,NOSKHAPUS,TGLSKHAPUS,KET,TGLVALID)
+      values(#Unitkey#,#Noskhapus#,#Tglskhapus#,#Ket#,null)
+    </insert>
+    <update id="UpdateByHapussk" parameterClass="Hapussk">
+      update ASET_HAPUSSK set TGLSKHAPUS=#Tglskhapus#,KET=#Ket#
+      where UNITKEY=#Unitkey# and NOSKHAPUS=#Noskhapus#
+    </update>
+    <update id="UpdateBySahHapussk" parameterClass="Hapussk">
+      UPDATE ASET_HAPUSSK SET TGLVALID = TGLSKHAPUS,TGLSKHAPUS=#Tglskhapus#,KET=#Ket#
+      where UNITKEY=#Unitkey# and NOSKHAPUS=#Noskhapus#
+    </update>
+    <update id="UpdateByDraftHapussk" parameterClass="Hapussk">
+      update ASET_HAPUSSK set TGLVALID = NULL
+      where UNITKEY=#Unitkey# and NOSKHAPUS=#Noskhapus#
+    </update>
+    <delete id="DeleteByHapussk" parameterMap="delete-param">
+      <generate table="ASET_HAPUSSK" by="UNITKEY,NOSKHAPUS"/>
+    </delete>
+    <select id="BaseQueryHapussk" parameterClass="Hapussk" resultMap="return-result">
+      SELECT ah.ID, ah.UNITKEY,d.KDUNIT, d.NMUNIT, ah.NOSKHAPUS, ah.TGLSKHAPUS,ah.KET, ah.TGLVALID
+      FROM ASET_HAPUSSK AS ah
+      INNER JOIN DAFTUNIT AS d ON d.UNITKEY = ah.UNITKEY
+    </select>
+    <select id="QueryByAllHapussk" extends="BaseQueryHapussk" parameterClass="Hapussk" resultMap="return-result">
+      where 1=1
+      and ah.unitkey = #Unitkey# 
+      order by Noskhapus
+    </select>
+    <select id="QueryByJmlkibHapussk" resultMap="return-jmlkib">
+      SELECT i.NOBA as NOSKHAPUS FROM (
+      SELECT ak.NOBA FROM ASET_KIBADET AS ak WHERE ak.UNITKEY = #Unitkey# AND ak.NOBA = #Noskhapus#
+      UNION ALL
+      SELECT ak.NOBA FROM ASET_KIBBDET AS ak WHERE ak.UNITKEY = #Unitkey# AND ak.NOBA = #Noskhapus#
+      UNION ALL
+      SELECT ak.NOBA FROM ASET_KIBCDET AS ak WHERE ak.UNITKEY = #Unitkey# AND ak.NOBA = #Noskhapus#
+      UNION ALL
+      SELECT ak.NOBA FROM ASET_KIBDDET AS ak WHERE ak.UNITKEY = #Unitkey# AND ak.NOBA = #Noskhapus#
+      UNION ALL
+      SELECT ak.NOBA FROM ASET_KIBEDET AS ak WHERE ak.UNITKEY = #Unitkey# AND ak.NOBA = #Noskhapus#
+      UNION ALL
+      SELECT ak.NOBA FROM ASET_KIBFDET AS ak WHERE ak.UNITKEY = #Unitkey# AND ak.NOBA = #Noskhapus#
+      UNION ALL
+      SELECT ak.NOBA FROM ASET_KIBGDET AS ak WHERE ak.UNITKEY = #Unitkey# AND ak.NOBA = #Noskhapus#
+      ) i
+    </select>
+    <select id="LoadByCekjmldataHapussk" parameterClass="Hapussk" resultMap="return-cekjmldata">
+      select COUNT(*) JMLDATA
+      from ASET_HAPUSSKDET A
+      WHERE A.UNITKEY=#Unitkey# AND A.NOSKHAPUS=#Noskhapus#
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Hapussk">
+      <parameter property="Id" column="ID"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noskhapus" column="NOSKHAPUS"/>
+      <parameter property="Tglskhapus" column="TGLSKHAPUS"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Tglvalid" column="TGLVALID"/>
+    </parameterMap>
+    <parameterMap id="update-param" class="Hapussk">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noskhapus" column="NOSKHAPUS"/>
+      <parameter property="Tglskhapus" column="TGLSKHAPUS"/>
+      <parameter property="Ket" column="KET"/>
+    </parameterMap>
+    <parameterMap id="delete-param" class="Hapussk">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noskhapus" column="NOSKHAPUS"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

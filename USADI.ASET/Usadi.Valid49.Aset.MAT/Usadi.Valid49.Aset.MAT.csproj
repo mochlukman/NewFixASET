@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF796F92-908D-4014-848E-F5B1A23E9E06}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Usadi.Valid49.BO</RootNamespace>
+    <AssemblyName>Usadi.Valid49.Aset.MAT</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Hasil_Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoreNET.Common.Auth">
+      <HintPath>..\bin\CoreNET.Common.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Data">
+      <HintPath>..\bin\CoreNET.Common.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Ext">
+      <HintPath>..\bin\CoreNET.Common.Ext.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Lib">
+      <HintPath>..\bin\CoreNET.Common.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Sync">
+      <HintPath>..\bin\CoreNET.Common.Sync.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Sys">
+      <HintPath>..\bin\CoreNET.Common.Sys.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.Thread">
+      <HintPath>..\bin\CoreNET.Common.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreNET.Common.UI">
+      <HintPath>..\bin\CoreNET.Common.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\bin\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Net">
+      <HintPath>..\bin\Ext.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ext.Net.Utilities">
+      <HintPath>..\bin\Ext.Net.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\bin\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseDataControlAsetMAT.cs" />
+    <Compile Include="Base\ConstantTablesAsetMAT.cs" />
+    <Compile Include="BO\Atribusi.cs" />
+    <Compile Include="BO\Atribusidet.cs" />
+    <Compile Include="BO\Atribusidetbrg.cs" />
+    <Compile Include="BO\Bapkirdet.cs" />
+    <Compile Include="BO\Bapkir.cs" />
+    <Compile Include="BO\Berita.cs" />
+    <Compile Include="BO\BeritaBakfLookup.cs" />
+    <Compile Include="BO\Beritadetbrg.cs" />
+    <Compile Include="BO\Beritadetr.cs" />
+    <Compile Include="BO\BeritaLookup.cs" />
+    <Compile Include="BO\Hapussk.cs" />
+    <Compile Include="BO\Hapusskdet.cs" />
+    <Compile Include="BO\Penggabungan.cs" />
+    <Compile Include="BO\Histrenov.cs" />
+    <Compile Include="BO\Histrenovdet.cs" />
+    <Compile Include="BO\HistrenovLookup.cs" />
+    <Compile Include="BO\KemitraanLookup.cs" />
+    <Compile Include="BO\Kemitraan.cs" />
+    <Compile Include="BO\Kemitraandet.cs" />
+    <Compile Include="BO\Kibadet.cs" />
+    <Compile Include="BO\Kibbdet.cs" />
+    <Compile Include="BO\Kibcdet.cs" />
+    <Compile Include="BO\Kibddet.cs" />
+    <Compile Include="BO\Kibedet.cs" />
+    <Compile Include="BO\Kibgdet.cs" />
+    <Compile Include="BO\Kibkemitraandet.cs" />
+    <Compile Include="BO\Kiblainnya.cs" />
+    <Compile Include="BO\Kiblainnyadet.cs" />
+    <Compile Include="BO\Kontrak.cs" />
+    <Compile Include="BO\KontrakLookup.cs" />
+    <Compile Include="BO\Koreksi.cs" />
+    <Compile Include="BO\Koreksidet.cs" />
+    <Compile Include="BO\Pencarian.cs" />
+    <Compile Include="BO\Pencariandet.cs" />
+    <Compile Include="BO\Pengguna.cs" />
+    <Compile Include="BO\Penggunadet.cs" />
+    <Compile Include="BO\Penilaian.cs" />
+    <Compile Include="BO\KdtanahLookup.cs" />
+    <Compile Include="BO\Kiba.cs" />
+    <Compile Include="BO\Kibb.cs" />
+    <Compile Include="BO\Kibc.cs" />
+    <Compile Include="BO\Kibd.cs" />
+    <Compile Include="BO\Kibe.cs" />
+    <Compile Include="BO\Kibf.cs" />
+    <Compile Include="BO\Kibfdet.cs" />
+    <Compile Include="BO\Kibg.cs" />
+    <Compile Include="BO\Kibmutasi.cs" />
+    <Compile Include="BO\Kibmutasidet.cs" />
+    <Compile Include="BO\Penyusutan.cs" />
+    <Compile Include="BO\Penyusutandet.cs" />
+    <Compile Include="BO\Pindahtangan.cs" />
+    <Compile Include="BO\Pindahtangandet.cs" />
+    <Compile Include="BO\Reklas.cs" />
+    <Compile Include="BO\Penilaiandet.cs" />
+    <Compile Include="BO\Reklasdet.cs" />
+    <Compile Include="BO\Kibkemitraan.cs" />
+    <Compile Include="BO\Reklasdetbrg.cs" />
+    <Compile Include="BO\ReklasNonoperasionaldetbrg.cs" />
+    <Compile Include="BO\ReklasRbdetbrg.cs" />
+    <Compile Include="BO\RkbmdPemeliharaan.cs" />
+    <Compile Include="BO\RkbmdPengadaan.cs" />
+    <Compile Include="BO\Skpengguna.cs" />
+    <Compile Include="BO\Skpenggunadet.cs" />
+    <Compile Include="BO\Skpenggunadetbrg.cs" />
+    <Compile Include="BO\Usulanhapus.cs" />
+    <Compile Include="BO\Usulanhapusdet.cs" />
+    <Compile Include="BO\Viewaset.cs" />
+    <Compile Include="BO\ViewasetKdp.cs" />
+    <Compile Include="BO\ViewasetLookup.cs" />
+    <Compile Include="BO\ViewasetRkbmdPemeliharaan.cs" />
+    <Compile Include="BO\ViewasetRkbmdPengadaan.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Kiba.xml" />
+    <EmbeddedResource Include="XML\Kibb.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Kibc.xml" />
+    <EmbeddedResource Include="XML\Kibd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Kibe.xml" />
+    <EmbeddedResource Include="XML\Kibf.xml" />
+    <EmbeddedResource Include="XML\Kibfdet.xml" />
+    <EmbeddedResource Include="XML\Kibg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Kibmutasi.xml" />
+    <EmbeddedResource Include="XML\Kibmutasidet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Reklas.xml" />
+    <EmbeddedResource Include="XML\Reklasdet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Penilaian.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Penilaiandet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Kemitraan.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Pindahtangan.xml" />
+    <EmbeddedResource Include="XML\Pindahtangandet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Kemitraandet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Hapussk.xml" />
+    <EmbeddedResource Include="XML\Hapusskdet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Bapkirdet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Bapkir.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Penyusutan.xml" />
+    <EmbeddedResource Include="XML\Penyusutandet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Kontrak.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Berita.xml" />
+    <EmbeddedResource Include="XML\Beritadetbrg.xml" />
+    <EmbeddedResource Include="XML\Beritadetr.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Atribusi.xml" />
+    <EmbeddedResource Include="XML\Atribusidet.xml" />
+    <EmbeddedResource Include="XML\Atribusidetbrg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\RkbmdPemeliharaan.xml" />
+    <EmbeddedResource Include="XML\RkbmdPengadaan.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Koreksi.xml" />
+    <EmbeddedResource Include="XML\Koreksidet.xml" />
+    <EmbeddedResource Include="XML\Pengguna.xml" />
+    <EmbeddedResource Include="XML\Penggunadet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Reklasdetbrg.xml" />
+    <EmbeddedResource Include="XML\Skpengguna.xml" />
+    <EmbeddedResource Include="XML\Skpenggunadet.xml" />
+    <EmbeddedResource Include="XML\Skpenggunadetbrg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Usadi.Valid49.Aset.DM\Usadi.Valid49.Aset.DM.csproj">
+      <Project>{19c88dec-8b1c-4927-a37d-171833734797}</Project>
+      <Name>Usadi.Valid49.Aset.DM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Usadi.Valid49.Aset.Sys\Usadi.Valid49.Aset.Sys.csproj">
+      <Project>{46c0db41-0fc9-4ed9-977c-67aec99ede8d}</Project>
+      <Name>Usadi.Valid49.Aset.Sys</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Kibadet.xml" />
+    <EmbeddedResource Include="XML\Kibbdet.xml" />
+    <EmbeddedResource Include="XML\Kibcdet.xml" />
+    <EmbeddedResource Include="XML\Kibddet.xml" />
+    <EmbeddedResource Include="XML\Kibedet.xml" />
+    <EmbeddedResource Include="XML\Kibgdet.xml" />
+    <EmbeddedResource Include="XML\Kibkemitraandet.xml" />
+    <EmbeddedResource Include="XML\Kiblainnyadet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Histrenov.xml" />
+    <EmbeddedResource Include="XML\Histrenovdet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Usulanhapus.xml" />
+    <EmbeddedResource Include="XML\Usulanhapusdet.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\Penggabungan.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

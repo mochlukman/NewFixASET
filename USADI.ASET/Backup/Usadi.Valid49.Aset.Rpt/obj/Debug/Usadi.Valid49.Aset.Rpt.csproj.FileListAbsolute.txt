@@ -1,0 +1,6 @@
+D:\USADIDEV\Bin\Usadi.Valid49.Aset.Rpt.dll
+D:\USADIDEV\Bin\Usadi.Valid49.Aset.Rpt.pdb
+D:\USADIDEV\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Debug\Usadi.Valid49.Aset.Rpt.csprojAssemblyReference.cache
+D:\USADIDEV\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Debug\Usadi.Valid49.Aset.Rpt.csproj.CopyComplete
+D:\USADIDEV\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Debug\Usadi.Valid49.Aset.Rpt.dll
+D:\USADIDEV\USADI.ASET\Usadi.Valid49.Aset.Rpt\obj\Debug\Usadi.Valid49.Aset.Rpt.pdb

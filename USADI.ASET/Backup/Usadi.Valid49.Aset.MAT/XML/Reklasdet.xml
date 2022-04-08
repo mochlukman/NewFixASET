@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Reklasdet" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Reklasdet" type="Usadi.Valid49.BO.ReklasdetControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Reklasdet">
+      <result property="Id" column="ID"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Kdaset" column="KDASET"/>
+      <result property="Nmaset" column="NMASET"/>
+      <result property="Asetkey2" column="ASETKEY2"/>
+      <result property="Kdaset2" column="KDASET2"/>
+      <result property="Nmaset2" column="NMASET2"/>
+      <result property="Noreg2" column="NOREG2"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Statusreklas" column="STATUSREKLAS"/>
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Noreklas" column="NOREKLAS"/>
+      <result property="Kdtans" column="KDTANS"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Noreg" column="NOREG"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertReklasdet" parameterMap="insert-param">
+      <generate table="Aset_reklasdet"/>
+    </insert>
+    <update id="UpdateByReklasdet" parameterMap="update-param">
+      <generate table="Aset_reklasdet" by="UNITKEY,NOREKLAS,KDTANS,ASETKEY,TAHUN,NOREG"/>
+    </update>
+    <update id="UpdateByValidRevReklasdet" parameterClass="Reklasdet">
+      update ASET_REKLASDET set REV_BY=#Rev_by# and REV_DATE=#Rev_date#
+    </update>
+    <update id="UpdateByUnValidRevReklasdet" parameterClass="Reklasdet">
+      update ASET_REKLASDET set REV_BY='' and REV_DATE=null
+    </update>
+    <delete id="DeleteByReklasdet" parameterMap="delete-param">
+      <generate table="Aset_reklasdet" by="UNITKEY,NOREKLAS,KDTANS,ASETKEY,TAHUN,NOREG"/>
+    </delete>
+    <select id="BaseQueryReklasdet" parameterClass="Reklasdet" resultMap="return-result">
+      select A.ID, A.UNITKEY, DU.KDUNIT, DU.NMUNIT, A.NOREKLAS, A.KDTANS, A.ASETKEY, D.KDASET, D.NMASET, A.ASETKEY2
+      , D2.KDASET as KDASET2, D2.NMASET as NMASET2, A.TAHUN, A.NOREG, A.NOREG2, A.IDBRG
+      , CASE A.[STATUS] WHEN '0' THEN 'Diajukan' WHEN '1' THEN 'Diterima' END as STATUSREKLAS
+      from ASET_REKLASDET A
+      left join JTRANS J on J.KDTANS = A.KDTANS
+      left join DAFTUNIT DU on DU.UNITKEY = A.UNITKEY
+      left join DAFTASET D on D.ASETKEY = A.ASETKEY
+      left join DAFTASET D2 on D2.ASETKEY = A.ASETKEY2
+    </select>
+    <select id="QueryByAllReklasdet" extends="BaseQueryReklasdet" parameterClass="Reklasdet" resultMap="return-result">
+      where 1=1
+      and A.UNITKEY=#Unitkey# and A.NOREKLAS=#Noreklas# and A.KDTANS=#Kdtans#
+      order by D.KDASET,A.TAHUN,A.NOREG,D2.KDASET
+    </select>
+    <select id="QueryByLookupReklasdet" extends="BaseQueryReklasdet" parameterClass="Reklasdet" resultMap="return-result">
+      where 1=1
+      order by D.KDASET,A.TAHUN,A.NOREG,D2.KDASET
+    </select>
+    <select id="LoadByPKReklasdet" extends="BaseQueryReklasdet" parameterClass="Reklasdet" resultMap="return-result">
+      where A.UNITKEY=#Unitkey# and A.NOREKLAS=#Noreklas# and A.KDTANS=#Kdtans#
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Reklasdet">
+      <parameter property="Asetkey2" column="ASETKEY2"/>
+      <parameter property="Noreg2" column="NOREG2"/>
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Statusreklas" column="STATUS"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noreklas" column="NOREKLAS"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+    </parameterMap>
+    <parameterMap id="update-param" extends="insert-param" class="Reklasdet">
+    </parameterMap>
+    <parameterMap id="delete-param" class="Reklasdet">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noreklas" column="NOREKLAS"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

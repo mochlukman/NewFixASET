@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Penggabungan" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Penggabungan" type="Usadi.Valid49.BO.PenggabunganControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Penggabungan">
+      <result property="Id" column="ID"/>
+      <result property="Nobagabung" column="NOBAGABUNG"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Kdtans" column="KDTANS"/>
+      <result property="Nmtrans" column="NMTRANS"/>
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Tglbagabung" column="TGLBAGABUNG"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertPenggabungan" parameterClass="Penggabungan">
+      INSERT INTO ASET_PENGGABUNGAN(NOBAGABUNG,IDBRG,KDTANS,UNITKEY,NILAI,TGLBAGABUNG)
+      VALUES(#Nobagabung,#Idbrg,#Kdtans,#Unitkey,#Nilai,#tglbagabung)
+    </insert>
+    <select id="BaseQueryPenggabungan" parameterClass="Penggabungan" resultMap="return-result">
+      SELECT a.ID, d.UNITKEY, d.KDUNIT, d.NMUNIT, a.NOBAGABUNG,a.TGLBAGABUNG, a.IDBRG, a.KDTANS,j.NMTRANS,a.NILAI
+      FROM ASET_PENGGABUNGAN AS a
+      INNER JOIN DAFTUNIT AS d ON d.UNITKEY = a.UNITKEY
+      INNER JOIN JTRANS AS j ON j.KDTANS = a.KDTANS
+    </select>
+    <select id="QueryByAllPenggabungan" extends="BaseQueryPenggabungan" parameterClass="Penggabungan" resultMap="return-result">
+      where 1=1
+      and A.UNITKEY=#Unitkey#
+      and A.KDTANS='117'
+      and year(a.TGLBAGABUNG) = (select CONFIGVAL from PEMDA where CONFIGID = 'cur_thang')
+    </select>    
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Penggabungan">
+      <parameter property="Nobagabung" column="NOBAGABUNG"/>
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Nilai" column="NILAI"/>
+      <parameter property="Tglbagabung" column="TGLBAGABUNG"/>
+    </parameterMap>    
+  </parameterMaps>
+</sqlMap>
+

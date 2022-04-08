@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Kiba" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Kiba" type="Usadi.Valid49.BO.KibaControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Kiba">
+      <result property="Id" column="ID"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Tglperolehan" column="TGLPEROLEHAN"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Noreg" column="NOREG"/>
+      <result property="Kdpemilik" column="KDPEMILIK"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Asalusul" column="ASALUSUL"/>
+      <result property="Pengguna" column="PENGGUNA"/>
+      <result property="Ket" column="KET"/>
+      <result property="Kdhak" column="KDHAK"/>
+      <result property="Luastnh" column="LUASTNH"/>
+      <result property="Alamat" column="ALAMAT"/>
+      <result property="Nofikat" column="NOFIKAT"/>
+      <result property="Tgfikat" column="TGFIKAT"/>
+      <result property="Kdlokpo" column="KDLOKPO"/>
+      <result property="Kdbrgpo" column="KDBRGPO"/>
+      <result property="Kdsatuan" column="KDSATUAN"/>
+      <result property="Kdklas" column="KDKLAS"/>
+      <result property="Kdsensus" column="KDSENSUS"/>
+      <result property="Kdstatusaset" column="KDSTATUSASET"/>
+      <result property="Kdunit" column="KDUNIT"/>
+      <result property="Nmunit" column="NMUNIT"/>
+      <result property="Kdaset" column="KDASET"/>
+      <result property="Nmaset" column="NMASET"/>
+      <result property="Nmpemilik" column="NMPEMILIK"/>
+      <result property="Nmhak" column="NMHAK"/>
+      <result property="Nmsatuan" column="NMSATUAN"/>
+      <result property="Uraiklas" column="URAIKLAS"/>      
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Keyinv" column="KEYINV"/>
+    </resultMap>
+    <resultMap id="return-result-kdtanah" class="Kiba">
+      <result property="Id" column="ID"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Kdaset" column="KDASET"/>
+      <result property="Nmaset" column="NMASET"/>
+      <result property="Tglperolehan" column="TGLPEROLEHAN"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Noreg" column="NOREG"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Alamat" column="ALAMAT"/>
+      <result property="Ket" column="KET"/>
+      <result property="Nokdtanah" column="NOKDTANAH"/>
+      <result property="Nmkdtanah" column="NMKDTANAH"/>
+    </resultMap>
+    <resultMap id="return-cekjmldata" class="Kiba">
+      <result property="Jmldata" column="JMLDATA"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertKiba" parameterMap="insert-param">
+      <generate table="Aset_kiba"/>
+    </insert>
+    <update id="UpdateByKiba" parameterClass="Kiba">
+      update ASET_KIBA set KDPEMILIK=#Kdpemilik#, ASALUSUL=#Asalusul#, PENGGUNA=#Pengguna#, KET=#Ket#, KDHAK=#Kdhak#
+      , LUASTNH=#Luastnh#, ALAMAT=#Alamat#, NOFIKAT=#Nofikat#, TGFIKAT=#Tgfikat#
+      where UNITKEY=#Unitkey# and ASETKEY=#Asetkey# and KEYINV=#Keyinv# 
+    </update>
+    <update id="UpdateByValidRevKiba" parameterClass="Kiba">
+      update ASET_KIBA set REV_BY=#Rev_by# and REV_DATE=#Rev_date#
+    </update>
+    <update id="UpdateByUnValidRevKiba" parameterClass="Kiba">
+      update ASET_KIBA set REV_BY='' and REV_DATE=null
+    </update>
+    <delete id="DeleteByKiba" parameterMap="delete-param">
+      <generate table="Aset_kiba" by="UNITKEY,ASETKEY,KEYINV"/>
+    </delete>
+    <select id="BaseQueryKiba" parameterClass="Kiba" resultMap="return-result">
+      select A.ID, A.IDBRG, A.UNITKEY, DU.KDUNIT, DU.NMUNIT, A.ASETKEY, DA.KDASET, DA.NMASET, A.KEYINV
+      , A.TGLPEROLEHAN, A.TAHUN, A.NOREG, A.KDPEMILIK, JM.NMPEMILIK, A.NILAI, A.ASALUSUL, A.PENGGUNA
+      , A.KET, A.KDHAK, JH.NMHAK, A.LUASTNH, A.ALAMAT, A.NOFIKAT, A.TGFIKAT, A.KDLOKPO, A.KDBRGPO
+      , A.KDSATUAN, S.NMSATUAN, A.KDKLAS, JK.URAIKLAS, A.KDSENSUS, A.KDSTATUSASET
+      from ASET_KIBA A
+      left join DAFTUNIT DU on DU.UNITKEY=A.UNITKEY
+      left join DAFTASET DA on DA.ASETKEY=A.ASETKEY
+      left join JMILIK JM on JM.KDPEMILIK=A.KDPEMILIK
+      left join JHAK JH on JH.KDHAK=A.KDHAK
+      left join JKLAS JK on JK.KDKLAS=A.KDKLAS
+      left join SATUAN S on S.KDSATUAN=A.KDSATUAN
+    </select>
+    <select id="QueryByAllKiba" extends="BaseQueryKiba" parameterClass="Kiba" resultMap="return-result">
+      where 1=1
+      and A.KDSTATUSASET='01'
+      and A.ASETKEY=#Asetkey#
+      and (A.Unitkey=#Unitkey# or isnull(#Unitkey#,'')='')
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="QueryByKdtanahKiba" parameterClass="Kiba" resultMap="return-result-kdtanah">
+      select A.ID, A.IDBRG, A.ASETKEY, DA.KDASET, DA.NMASET, A.TGLPEROLEHAN, A.TAHUN, A.NOREG, A.NILAI
+      , A.ALAMAT, A.KET, rtrim(A.IDBRG)+'.'+rtrim(A.TAHUN)+'.'+rtrim(A.NOREG) as NOKDTANAH
+      , A.ALAMAT as NMKDTANAH
+      from ASET_KIBA A
+      LEFT JOIN DAFTASET DA ON DA.ASETKEY = A.ASETKEY
+      where 1=1
+      and A.KDSTATUSASET='01'
+      and A.UNITKEY=#Unitkey#
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="QueryByLookupKiba" extends="BaseQueryKiba" parameterClass="Kiba" resultMap="return-result">
+      where 1=1
+      order by DA.KDASET, A.TAHUN, A.NOREG, A.NILAI
+    </select>
+    <select id="LoadByPKKiba" extends="BaseQueryKiba" parameterClass="Kiba" resultMap="return-result">
+      where A.UNITKEY=#Unitkey# and A.ASETKEY=#Asetkey# and A.KEYINV=#Keyinv#
+    </select>
+    <select id="LoadByCekjmldataKiba" parameterClass="Kiba" resultMap="return-cekjmldata">
+      select COUNT(*) JMLDATA
+      from ASET_KIBA A
+      where A.UNITKEY = #Unitkey# and A.ASETKEY = #Asetkey# and A.KEYINV=#Keyinv#
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Kiba">
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Tglperolehan" column="TGLPEROLEHAN"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Kdpemilik" column="KDPEMILIK"/>
+      <parameter property="Nilai" column="NILAI"/>
+      <parameter property="Asalusul" column="ASALUSUL"/>
+      <parameter property="Pengguna" column="PENGGUNA"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Kdhak" column="KDHAK"/>
+      <parameter property="Luastnh" column="LUASTNH"/>
+      <parameter property="Alamat" column="ALAMAT"/>
+      <parameter property="Nofikat" column="NOFIKAT"/>
+      <parameter property="Tgfikat" column="TGFIKAT"/>
+      <parameter property="Kdlokpo" column="KDLOKPO"/>
+      <parameter property="Kdbrgpo" column="KDBRGPO"/>
+      <parameter property="Kdsatuan" column="KDSATUAN"/>
+      <parameter property="Kdklas" column="KDKLAS"/>
+      <parameter property="Kdsensus" column="KDSENSUS"/>
+      <parameter property="Kdstatusaset" column="KDSTATUSASET"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+    </parameterMap>
+    <parameterMap id="update-param" class="Kiba">
+      <parameter property="Kdpemilik" column="KDPEMILIK"/>
+      <parameter property="Asalusul" column="ASALUSUL"/>
+      <parameter property="Pengguna" column="PENGGUNA"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Kdhak" column="KDHAK"/>
+      <parameter property="Luastnh" column="LUASTNH"/>
+      <parameter property="Alamat" column="ALAMAT"/>
+      <parameter property="Nofikat" column="NOFIKAT"/>
+      <parameter property="Tgfikat" column="TGFIKAT"/>
+      <parameter property="Kdsatuan" column="KDSATUAN"/>
+    </parameterMap>
+    <parameterMap id="delete-param" class="Kiba">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+

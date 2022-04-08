@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="Kibadet" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Kibadet" type="Usadi.Valid49.BO.KibadetControl, Usadi.Valid49.Aset.MAT" />
+  </alias>
+  <resultMaps>
+    <resultMap id="return-result" class="Kibadet">
+      <result property="Id" column="ID"/>
+      <result property="Idbrg" column="IDBRG"/>
+      <result property="Tahun" column="TAHUN"/>
+      <result property="Noreg" column="NOREG"/>
+      <result property="Kdtans" column="KDTANS"/>
+      <result property="Nmtrans" column="NMTRANS"/>
+      <result property="Tgldokumen" column="TGLDOKUMEN"/>
+      <result property="Nilai" column="NILAI"/>
+      <result property="Ket" column="KET"/>
+      <result property="Thang" column="THANG"/>
+      <result property="Uraitrans" column="URAITRANS"/>
+      <result property="Nilaitrans" column="NILAITRANS"/>
+      <result property="Unitkey" column="UNITKEY"/>
+      <result property="Noba" column="NOBA"/>
+      <result property="Asetkey" column="ASETKEY"/>
+      <result property="Keyinv" column="KEYINV"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="InsertKibadet" parameterMap="insert-param">
+      <generate table="Kibadet"/>
+    </insert>
+    <update id="UpdateByKibadet" parameterMap="update-param">
+      <generate table="Aset_kibadet" by="UNITKEY,NOBA,ASETKEY,KEYINV"/>
+    </update>
+    <update id="UpdateByValidRevKibadet" parameterClass="Kibadet">
+      update ASET_KIBADET set REV_BY=#Rev_by# and REV_DATE=#Rev_date#
+    </update>
+    <update id="UpdateByUnValidRevKibadet" parameterClass="Kibadet">
+      update ASET_KIBADET set REV_BY='' and REV_DATE=null
+    </update>
+    <delete id="DeleteByKibadet" parameterMap="delete-param">
+      <generate table="Aset_kibadet" by="UNITKEY,NOBA,ASETKEY,KEYINV"/>
+    </delete>
+    <select id="BaseQueryKibadet" parameterClass="Kibadet" resultMap="return-result">
+      select A.ID, A.IDBRG, A.UNITKEY, A.ASETKEY, A.KEYINV, A.TAHUN, A.NOREG, A.NOBA, A.KDTANS, j.NMTRANS
+      , A.TGLDOKUMEN, A.NILAI, A.KET, A.THANG
+      , CASE WHEN LEFT(A.KDTANS,1) IN('0','1') THEN J.NMTRANS+' (+)' WHEN LEFT(A.KDTANS,1) = '2' THEN J.NMTRANS+' (-)' END AS URAITRANS
+      , CASE WHEN LEFT(A.KDTANS,1) IN('0','1') THEN A.NILAI WHEN LEFT(A.KDTANS,1) = '2' THEN -1*A.NILAI END AS NILAITRANS
+      from ASET_KIBADET A
+      left join JTRANS J on J.KDTANS=A.KDTANS
+    </select>
+    <select id="QueryByAllKibadet" extends="BaseQueryKibadet" parameterClass="Kibadet" resultMap="return-result">
+      where 1=1
+      and A.UNITKEY=#Unitkey#
+      and A.ASETKEY=#Asetkey#
+      and A.KEYINV=#Keyinv#
+      order by A.TGLDOKUMEN
+    </select>
+    <select id="QueryByLookupKibadet" extends="BaseQueryKibadet" parameterClass="Kibadet" resultMap="return-result">
+      where 1=1
+      order by A.TGLDOKUMEN
+    </select>
+    <select id="LoadByPKKibadet" extends="BaseQueryKibadet" parameterClass="Kibadet" resultMap="return-result">
+      where A.KEYINV=#Keyinv# and A.ASETKEY=#Asetkey# and A.NOBA=#Noba# and A.UNITKEY=#Unitkey#
+    </select>
+  </statements>
+  <parameterMaps>
+    <parameterMap id="insert-param" class="Kibadet">
+      <parameter property="Idbrg" column="IDBRG"/>
+      <parameter property="Tahun" column="TAHUN"/>
+      <parameter property="Noreg" column="NOREG"/>
+      <parameter property="Kdtans" column="KDTANS"/>
+      <parameter property="Tgldokumen" column="TGLDOKUMEN"/>
+      <parameter property="Nilai" column="NILAI"/>
+      <parameter property="Ket" column="KET"/>
+      <parameter property="Thang" column="THANG"/>
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noba" column="NOBA"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+    <parameterMap id="update-param" extends="insert-param" class="Kibadet">
+    </parameterMap>
+    <parameterMap id="delete-param" class="Kibadet">
+      <parameter property="Unitkey" column="UNITKEY"/>
+      <parameter property="Noba" column="NOBA"/>
+      <parameter property="Asetkey" column="ASETKEY"/>
+      <parameter property="Keyinv" column="KEYINV"/>
+    </parameterMap>
+  </parameterMaps>
+</sqlMap>
+
