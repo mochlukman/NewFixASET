@@ -218,6 +218,7 @@ D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi
 D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi.Valid49.Aset.DM.csproj.CopyComplete
 D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi.Valid49.Aset.DM.dll
 D:\USADI\USADIDEV\USADI.NEWASET\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi.Valid49.Aset.DM.pdb
+E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\itextsharp.dll
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\Usadi.Valid49.Aset.DM.dll
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\Usadi.Valid49.Aset.DM.pdb
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\CoreNET.Common.Auth.dll
@@ -231,7 +232,6 @@ E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\CoreNET.
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\EPPlus.dll
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\Ext.Net.dll
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\Ext.Net.Utilities.dll
-E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\itextsharp.dll
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\log4net.dll
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\IBatisNet.DataAccess.dll
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\bin\Debug\IBatisNet.DataMapper.dll
@@ -249,3 +249,4 @@ E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi.Va
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi.Valid49.Aset.DM.csproj.CopyComplete
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi.Valid49.Aset.DM.dll
 E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi.Valid49.Aset.DM.pdb
+E:\Project\NewASET\ASET_APRO\USADI.ASET\Usadi.Valid49.Aset.DM\obj\Debug\Usadi.Valid49.Aset.DM.csprojAssemblyReference.cache

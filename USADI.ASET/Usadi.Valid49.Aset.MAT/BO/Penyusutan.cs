@@ -37,7 +37,7 @@ namespace Usadi.Valid49.BO
     public string Kdkib { get; set; }
     public string Nmkib { get; set; }
     public int Jmldata { get; set; }
-    public string Kd_bulan { get; set; }
+    public int Kd_bulan { get; set; }
     public string Kdtahun { get; set; }
     public string Unitkey { get; set; }
     public string Asetkey { get; set; }
@@ -304,7 +304,7 @@ namespace Usadi.Valid49.BO
       }
       else
       {
-        if (Kd_bulan == "" || Kd_bulan == null)
+        if (Kd_bulan == 0 || Kd_bulan == null)
         {
           throw new Exception("Gagal menyimpan data : hitung penyusutan harus memilih bulan");
         }

@@ -89,6 +89,7 @@ namespace Usadi.Valid49.BO
       else if (typeof(PenyusutanControl).IsInstanceOfType(bo))
       {
         Idbrg = ((PenyusutanControl)bo).Idbrg;
+        Bulan = ((PenyusutanControl)bo).Kd_bulan;
       }
     }
     public new IList View()

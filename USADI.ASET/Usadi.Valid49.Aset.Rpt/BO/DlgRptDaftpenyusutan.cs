@@ -31,6 +31,15 @@ namespace Usadi.Valid49.BO
       set { _Subunit = value; }
     }
     #endregion
+    #region Property Kdklas
+    private string _Kdklas;
+    public string Kdklas
+    {
+      get { return _Kdklas; }
+      set { _Kdklas = value; }
+    }
+    #endregion
+
 
     public DlgRptDaftpenyusutanControl()
     {
@@ -99,10 +108,15 @@ namespace Usadi.Valid49.BO
       hpars.Add(new ParameterRowSelect(ConstantDict.GetColumnTitle("Bulan"),
         GetList(new DmbulanLookupControl()), "Bulan=Nmbulan", 27).SetEnable(enableFilter));
 
+      hpars.Add(new ParameterRowSelect(ConstantDict.GetColumnTitle("Kdklas=Kelas Aset"),
+        GetList(new JklasRptLookupControl()), "Kdklas=Uraiklas", 54).SetEnable(enableFilter));
+
       hpars.Add(new ParameterRowSelect(ConstantDict.GetColumnTitle("Kdtahun=Tahun"),
         GetList(new TahunLookupControl()), "Kdtahun=Nmtahun", 27).SetEnable(enableFilter));
 
-      ArrayList list = new ArrayList(new ParamControl[] {
+      
+
+            ArrayList list = new ArrayList(new ParamControl[] {
          new ParamControl() { Kdpar="1",Nmpar="Ya"}
         ,new ParamControl() { Kdpar="0",Nmpar="Tidak"}
       });
@@ -175,6 +189,7 @@ namespace Usadi.Valid49.BO
 
       Hashtable Params = new Hashtable();
       Params["@unitkey"] = Unitkey;
+      Params["@kdklas"] = Kdklas;
       Params["@bulan"] = Bulan;
       Params["@kdtahun"] = Kdtahun;
       Params["@subunit"] = Subunit;

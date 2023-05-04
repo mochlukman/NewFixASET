@@ -70,9 +70,35 @@ namespace Usadi.Valid49.BO
       get { return _Nmtahun; }
       set { _Nmtahun = value; }
     }
-    #endregion
+        #endregion
+    #region Property Nmruang
+        private string _Nmruang;
+        public string Nmruang
+        {
+            get { return _Nmruang; }
+            set { _Nmruang = value; }
+        }
+        #endregion
+    #region Property Kdruang
+        private string _Kdruang;
+        public string Kdruang
+        {
+            get { return _Kdruang; }
+            set { _Kdruang = value; }
+        }
+        #endregion
+    #region Property Ruangkey
+        private string _Ruangkey;
+        public string Ruangkey
+        {
+            get { return _Ruangkey; }
+            set { _Ruangkey = value; }
+        }
+        #endregion
 
-    public DlgRptLabelControl()
+
+
+        public DlgRptLabelControl()
     {
       XMLName = ConstantTablesAsetDM.XMLDAFTUNIT;
 
@@ -137,7 +163,7 @@ namespace Usadi.Valid49.BO
       bool enableFilter = string.IsNullOrEmpty(GlobalAsp.GetRequestIdPrev());
       HashTableofParameterRow hpars = new HashTableofParameterRow();
       hpars.Add(DaftunitLookupControl.Instance.GetLookupParameterRow(this, false));
-
+      hpars.Add(StskirLookupControl.Instance.GetLookupParameterRow(this, false).SetAllowRefresh(true).SetEnable(enableFilter).SetAllowEmpty(false));
       hpars.Add(new ParameterRowSelect(ConstantDict.GetColumnTitle("Kdtahun=Tahun"),
         GetList(new TahunLookupControl()), "Kdtahun=Kdtahun", 26).SetEnable(enableFilter));
 

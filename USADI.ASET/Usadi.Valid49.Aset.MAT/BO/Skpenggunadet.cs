@@ -362,7 +362,14 @@ namespace Usadi.Valid49.BO
       hpars.Add(new ParameterRowDate(this, ConstantDict.GetColumnTitle("Tgldokumen=Tgl Dokumen"), true).SetEnable(enable).SetEditable(enable)
         .SetAllowEmpty(false));
       hpars.Add(new ParameterRowMemo(this, ConstantDict.GetColumnTitle("Ket=Keterangan"), true, 3).SetEnable(enable).SetAllowEmpty(true));
-      hpars.Add(new ParameterRowCek(this, true).SetEnable(enableValid).SetEditable(enable));
+       ArrayList list = new ArrayList(new ParamControl[] {
+        new ParamControl() {  Kdpar="0",Nmpar="Diajukan "}
+        ,new ParamControl() { Kdpar="1",Nmpar="Diterima "}
+        ,new ParamControl() { Kdpar="2",Nmpar="Ditolak "}
+      });
+            hpars.Add(new ParameterRow(ConstantDict.GetColumnTitleEntry("Statusdok=Status"), ParameterRow.MODE_SELECT,
+              list, "Kdpar=Nmpar", 30).SetAllowRefresh(true).SetEnable(enableValid).SetEditable(true));
+            hpars.Add(new ParameterRowCek(this, true).SetEnable(enableValid).SetEditable(enable));
       return hpars;
     }
 
@@ -428,7 +435,7 @@ namespace Usadi.Valid49.BO
         ,new ParamControl() { Kdpar="2",Nmpar="Ditolak "}
       });
       hpars.Add(new ParameterRow(ConstantDict.GetColumnTitleEntry("Statusdok=Status"), ParameterRow.MODE_SELECT,
-        list, "Kdpar=Nmpar", 30).SetAllowRefresh(false).SetEnable(enable).SetEditable(true));
+        list, "Kdpar=Nmpar", 30).SetAllowRefresh(true).SetEnable(enable).SetEditable(true));
       hpars.Add(new ParameterRowMemo(this, ConstantDict.GetColumnTitle("Ket=Keterangan"), true, 3).SetEnable(enable).SetAllowEmpty(true));
       hpars.Add(new ParameterRowCek(this, true).SetEnable(enableValid).SetEditable(enable));
       return hpars;
